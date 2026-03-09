@@ -1,0 +1,281 @@
+================================================================================
+  UNIDAD 5: PROGRAMACIÓN ESTRUCTURADA
+  Ejemplo 7: Números Aleatorios con rand()
+  Profesor: José Alfredo Sánchez
+================================================================================
+
+OBJETIVO:
+  Aprender a generar y utilizar números aleatorios en programación.
+  Aplicaciones prácticas: juegos, simulaciones, respuestas aleatorias.
+
+PROBLEMA:
+  Crear un programa interactivo que:
+  1. Muestre un saludo aleatorio al iniciar
+  2. Simule el lanzamiento de un dado (valores 1-6)
+  3. Genere respuestas aleatorias tipo oráculo (Sí/No/Tal vez)
+  4. Genere números de lotería (1-100)
+
+================================================================================
+ANÁLISIS DEL PROBLEMA
+================================================================================
+
+ENTRADAS:
+  - opcion (entero): Selección del menú (1-4)
+  - continuar (carácter): Decisión de continuar (s/n)
+
+PROCESO:
+  - Inicializar generador con srand(time(NULL))
+  - Generar números aleatorios con rand()
+  - Limitar rangos usando operador módulo (%)
+  - Usar switch para seleccionar acciones
+
+SALIDAS:
+  - Saludo aleatorio
+  - Resultado de dado (1-6)
+  - Respuesta aleatoria (Sí/No/Tal vez)
+  - Número de lotería (1-100)
+
+FUNCIONES CLAVE:
+  - rand(): Genera número aleatorio entre 0 y RAND_MAX
+  - srand(semilla): Inicializa el generador
+  - time(NULL): Obtiene tiempo actual como semilla
+  - Operador %: Limita el rango de números
+
+================================================================================
+PSEUDOCÓDIGO
+================================================================================
+
+ALGORITMO GeneradorNumerosAleatorios
+
+INICIO
+  // Declaración de variables
+  ENTERO opcion, numero_aleatorio, dado
+  CARACTER continuar
+  
+  // Inicializar generador de números aleatorios
+  INICIALIZAR_SEMILLA(TIEMPO_ACTUAL)
+  
+  // Saludo aleatorio
+  numero_aleatorio ← ALEATORIO(0, 4)  // 0 a 4
+  
+  SEGÚN numero_aleatorio HACER
+    CASO 0: ESCRIBIR "¡Hola! Bienvenido al programa."
+    CASO 1: ESCRIBIR "¡Saludos! Es un placer tenerte aquí."
+    CASO 2: ESCRIBIR "¡Buenos días! Que tengas un excelente día."
+    CASO 3: ESCRIBIR "¡Hola amigo! Listo para comenzar."
+    CASO 4: ESCRIBIR "¡Bienvenido! Espero que disfrutes este programa."
+  FIN_SEGÚN
+  
+  // Menú principal
+  REPETIR
+    ESCRIBIR "=== MENÚ PRINCIPAL ==="
+    ESCRIBIR "1. Lanzar un dado (1-6)"
+    ESCRIBIR "2. Obtener respuesta aleatoria (Sí/No/Tal vez)"
+    ESCRIBIR "3. Generar número de lotería (1-100)"
+    ESCRIBIR "4. Salir"
+    ESCRIBIR ""
+    ESCRIBIR "Seleccione una opción: "
+    LEER opcion
+    
+    SEGÚN opcion HACER
+      CASO 1:
+        // Simular lanzamiento de dado
+        ESCRIBIR "--- LANZAMIENTO DE DADO ---"
+        ESCRIBIR "Lanzando el dado..."
+        dado ← ALEATORIO(1, 6)  // 1 a 6
+        ESCRIBIR "¡El dado muestra: ", dado, "!"
+        
+        SI dado = 6 ENTONCES
+          ESCRIBIR "¡Excelente! Sacaste el número más alto."
+        SINO SI dado = 1 ENTONCES
+          ESCRIBIR "Mala suerte, sacaste el número más bajo."
+        SINO
+          ESCRIBIR "Resultado moderado."
+        FIN_SI
+        
+      CASO 2:
+        // Respuesta aleatoria
+        ESCRIBIR "--- ORÁCULO DE RESPUESTAS ---"
+        ESCRIBIR "Haz una pregunta de Sí/No en tu mente..."
+        ESCRIBIR "Presiona Enter para obtener la respuesta..."
+        ESPERAR_ENTER()
+        
+        numero_aleatorio ← ALEATORIO(0, 9)  // 0 a 9
+        
+        SI numero_aleatorio < 4 ENTONCES
+          ESCRIBIR "Respuesta: SÍ"
+        SINO SI numero_aleatorio < 7 ENTONCES
+          ESCRIBIR "Respuesta: NO"
+        SINO SI numero_aleatorio < 9 ENTONCES
+          ESCRIBIR "Respuesta: TAL VEZ"
+        SINO
+          ESCRIBIR "Respuesta: PREGUNTA DE NUEVO MÁS TARDE"
+        FIN_SI
+        
+      CASO 3:
+        // Número de lotería
+        ESCRIBIR "--- GENERADOR DE NÚMERO DE LOTERÍA ---"
+        ESCRIBIR "Generando tu número de la suerte..."
+        numero_aleatorio ← ALEATORIO(1, 100)  // 1 a 100
+        ESCRIBIR "Tu número es: ", numero_aleatorio
+        ESCRIBIR "¡Buena suerte!"
+        
+      CASO 4:
+        // Despedida aleatoria
+        numero_aleatorio ← ALEATORIO(0, 3)
+        SEGÚN numero_aleatorio HACER
+          CASO 0: ESCRIBIR "¡Hasta luego! Vuelve pronto."
+          CASO 1: ESCRIBIR "¡Adiós! Que tengas un excelente día."
+          CASO 2: ESCRIBIR "¡Nos vemos! Gracias por usar el programa."
+          CASO 3: ESCRIBIR "¡Hasta la próxima! Cuídate."
+        FIN_SEGÚN
+        
+      OTRO:
+        ESCRIBIR "Opción inválida. Por favor seleccione 1-4."
+    FIN_SEGÚN
+    
+    SI opcion ≠ 4 ENTONCES
+      ESCRIBIR "¿Desea continuar? (s/n): "
+      LEER continuar
+    FIN_SI
+    
+  MIENTRAS opcion ≠ 4 Y (continuar = 's' O continuar = 'S')
+  
+  ESCRIBIR "PROGRAMA FINALIZADO"
+FIN
+
+================================================================================
+TABLA DE TRAZA (Corrida en Frío)
+================================================================================
+
+Ejemplo de ejecución con valores aleatorios simulados:
+
+Paso | Instrucción                      | numero_aleatorio | dado | opcion
+-----|----------------------------------|------------------|------|--------
+  1  | INICIALIZAR_SEMILLA              |        ?         |  ?   |   ?
+  2  | numero_aleatorio ← ALEATORIO(0,4)|        2         |  ?   |   ?
+  3  | Mostrar saludo caso 2            |        2         |  ?   |   ?
+  4  | LEER opcion                      |        2         |  ?   |   1
+  5  | dado ← ALEATORIO(1,6)            |        2         |  4   |   1
+  6  | Mostrar "El dado muestra: 4"     |        2         |  4   |   1
+  7  | LEER opcion                      |        2         |  4   |   2
+  8  | numero_aleatorio ← ALEATORIO(0,9)|        5         |  4   |   2
+  9  | Mostrar "Respuesta: NO"          |        5         |  4   |   2
+ 10  | LEER opcion                      |        5         |  4   |   4
+ 11  | numero_aleatorio ← ALEATORIO(0,3)|        1         |  4   |   4
+ 12  | Mostrar despedida caso 1         |        1         |  4   |   4
+
+================================================================================
+CONCEPTOS TÉCNICOS
+================================================================================
+
+1. FUNCIÓN rand():
+   - Genera números pseudoaleatorios
+   - Rango: 0 a RAND_MAX (típicamente 32767)
+   - Sintaxis: numero = rand()
+
+2. FUNCIÓN srand():
+   - Inicializa la "semilla" del generador
+   - Sin srand(), rand() genera la misma secuencia siempre
+   - Sintaxis: srand(semilla)
+
+3. FUNCIÓN time(NULL):
+   - Devuelve segundos transcurridos desde 1/1/1970
+   - Cambia cada segundo
+   - Ideal como semilla para números "verdaderamente" aleatorios
+
+4. LIMITAR RANGOS CON MÓDULO (%):
+   
+   Fórmula general:
+   - Para rango [0, N-1]: rand() % N
+   - Para rango [1, N]: (rand() % N) + 1
+   - Para rango [MIN, MAX]: (rand() % (MAX - MIN + 1)) + MIN
+   
+   Ejemplos:
+   - Dado (1-6): (rand() % 6) + 1
+   - Moneda (0-1): rand() % 2
+   - Porcentaje (0-100): rand() % 101
+   - Lotería (1-100): (rand() % 100) + 1
+
+================================================================================
+APLICACIONES DE NÚMEROS ALEATORIOS
+================================================================================
+
+1. JUEGOS:
+   ✓ Dados, cartas, ruleta
+   ✓ Generación de enemigos
+   ✓ Eventos aleatorios en videojuegos
+   ✓ Posiciones iniciales
+
+2. SIMULACIONES:
+   ✓ Modelado de eventos probabilísticos
+   ✓ Pruebas estadísticas
+   ✓ Simulación de Monte Carlo
+   ✓ Análisis de riesgo
+
+3. SEGURIDAD:
+   ✓ Generación de contraseñas
+   ✓ Tokens de sesión
+   ✓ Captchas
+   ✓ Claves de cifrado (con generadores más seguros)
+
+4. ENTRETENIMIENTO:
+   ✓ Frases aleatorias
+   ✓ Selección aleatoria de elementos
+   ✓ Sorteos y rifas
+   ✓ Generadores de contenido
+
+================================================================================
+CASOS DE PRUEBA
+================================================================================
+
+Caso 1: Lanzamiento de dado
+  Entrada: opcion = 1
+  Proceso: dado = (rand() % 6) + 1
+  Salida esperada: Número entre 1 y 6
+
+Caso 2: Respuesta aleatoria
+  Entrada: opcion = 2
+  Proceso: numero_aleatorio = rand() % 10
+  Salida esperada: "SÍ", "NO", "TAL VEZ" o "PREGUNTA DE NUEVO"
+
+Caso 3: Número de lotería
+  Entrada: opcion = 3
+  Proceso: numero_aleatorio = (rand() % 100) + 1
+  Salida esperada: Número entre 1 y 100
+
+Caso 4: Salir
+  Entrada: opcion = 4
+  Salida esperada: Despedida aleatoria y fin del programa
+
+================================================================================
+EJERCICIOS PROPUESTOS
+================================================================================
+
+1. Modificar para simular lanzamiento de 2 dados y sumar resultados
+2. Crear un juego de "adivina el número" (1-100) con intentos limitados
+3. Generar una contraseña aleatoria de 8 caracteres alfanuméricos
+4. Simular 1000 lanzamientos de moneda y mostrar estadísticas
+5. Crear un generador de nombres aleatorios combinando listas
+6. Implementar un juego de piedra-papel-tijera contra la computadora
+7. Generar un color RGB aleatorio (valores 0-255 para R, G, B)
+
+================================================================================
+NOTAS PEDAGÓGICAS
+================================================================================
+
+Este ejemplo enseña:
+  ✓ Uso de rand() y srand()
+  ✓ Inicialización con time(NULL)
+  ✓ Limitación de rangos con operador módulo
+  ✓ Estructura switch para menús
+  ✓ Ciclo do-while para repetición
+  ✓ Aplicaciones prácticas de aleatoriedad
+
+Conceptos clave:
+  - Números pseudoaleatorios
+  - Semilla (seed)
+  - Rangos y distribuciones
+  - Probabilidades básicas
+
+================================================================================
