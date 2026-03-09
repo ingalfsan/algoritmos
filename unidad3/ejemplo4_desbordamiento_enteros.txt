@@ -1,0 +1,164 @@
+================================================================================
+  UNIDAD 3: DATOS Y ENTIDADES PRIMITIVAS
+  Ejemplo 4: Desbordamiento de Enteros (Overflow)
+  Profesor: José Alfredo Sánchez
+================================================================================
+
+OBJETIVO:
+  Demostrar qué ocurre cuando el resultado de una operación excede la 
+  capacidad de almacenamiento del tipo de dato utilizado (overflow).
+
+PROBLEMA:
+  Calcular el salario semanal de un trabajador multiplicando la cantidad 
+  de días trabajados por el sueldo diario.
+  
+  Ejemplo: 5 días × 7000 Bs/día = 35000 Bs
+  
+  ¿Qué pasa si usamos un tipo de dato insuficiente?
+
+================================================================================
+ANÁLISIS DEL PROBLEMA
+================================================================================
+
+ENTRADAS:
+  - dias_trabajados (entero): Cantidad de días trabajados en la semana
+  - sueldo_diario (entero): Sueldo que recibe por cada día
+
+PROCESO:
+  - Calcular: salario_semanal = dias_trabajados × sueldo_diario
+
+SALIDAS:
+  - salario_semanal: Total a pagar en la semana
+
+LÍMITES DE TIPOS DE DATOS:
+  - short int: -32768 a 32767 (16 bits con signo)
+  - int: -2147483648 a 2147483647 (32 bits con signo, típico en sistemas modernos)
+  - long int: rango aún mayor
+
+PROBLEMA DE DESBORDAMIENTO:
+  Si usamos short int y el resultado es 35000, excede 32767.
+  El sistema "da la vuelta" y produce un número negativo incorrecto.
+
+================================================================================
+PSEUDOCÓDIGO
+================================================================================
+
+ALGORITMO CalcularSalarioSemanal
+
+INICIO
+  // Declaración de variables
+  ENTERO dias_trabajados
+  ENTERO sueldo_diario
+  ENTERO_CORTO salario_incorrecto    // short int (16 bits)
+  ENTERO_LARGO salario_correcto      // long int (32+ bits)
+  
+  // Entrada de datos
+  ESCRIBIR "=== CÁLCULO DE SALARIO SEMANAL ==="
+  ESCRIBIR ""
+  ESCRIBIR "Ingrese cantidad de días trabajados: "
+  LEER dias_trabajados
+  
+  ESCRIBIR "Ingrese sueldo diario (Bs): "
+  LEER sueldo_diario
+  
+  // Proceso con tipo de dato INSUFICIENTE (short int)
+  salario_incorrecto ← dias_trabajados × sueldo_diario
+  
+  // Proceso con tipo de dato ADECUADO (long int)
+  salario_correcto ← dias_trabajados × sueldo_diario
+  
+  // Salida de resultados
+  ESCRIBIR ""
+  ESCRIBIR "--- RESULTADOS ---"
+  ESCRIBIR "Días trabajados: ", dias_trabajados
+  ESCRIBIR "Sueldo diario: Bs ", sueldo_diario
+  ESCRIBIR ""
+  ESCRIBIR "Usando short int (INCORRECTO): Bs ", salario_incorrecto
+  ESCRIBIR "Usando long int (CORRECTO): Bs ", salario_correcto
+  
+  // Explicación del problema
+  SI salario_incorrecto < 0 ENTONCES
+    ESCRIBIR ""
+    ESCRIBIR "¡ADVERTENCIA! Desbordamiento detectado."
+    ESCRIBIR "El resultado excede la capacidad de short int (32767)."
+    ESCRIBIR "Use long int para valores grandes."
+  FIN_SI
+FIN
+
+================================================================================
+TABLA DE TRAZA (Corrida en Frío)
+================================================================================
+
+Caso de prueba: 5 días × 7000 Bs/día
+
+Paso | Instrucción                    | dias | sueldo | salario_incorrecto | salario_correcto
+-----|--------------------------------|------|--------|--------------------|-----------------
+  1  | LEER dias_trabajados           |  5   |   ?    |         ?          |        ?
+  2  | LEER sueldo_diario             |  5   | 7000   |         ?          |        ?
+  3  | salario_incorrecto = 5 × 7000  |  5   | 7000   |     -30536*        |        ?
+  4  | salario_correcto = 5 × 7000    |  5   | 7000   |     -30536         |     35000
+
+* El valor 35000 excede 32767 (máximo de short int).
+  En binario ocurre un "desbordamiento" y el resultado se interpreta como negativo.
+  
+  Cálculo del overflow:
+  35000 - 65536 = -30536  (donde 65536 = 2^16, rango de short int)
+
+================================================================================
+EXPLICACIÓN TÉCNICA
+================================================================================
+
+¿POR QUÉ OCURRE EL DESBORDAMIENTO?
+
+1. short int usa 16 bits con signo:
+   - Rango: -32768 a 32767
+   - En binario: 1 bit para signo, 15 bits para valor
+
+2. Cuando el resultado (35000) excede 32767:
+   - Los bits "se desbordan"
+   - El bit de signo se activa incorrectamente
+   - El número se interpreta como negativo
+
+3. Solución: Usar un tipo de dato con mayor capacidad
+   - int (32 bits): hasta 2,147,483,647
+   - long int: igual o mayor capacidad que int
+   - long long int (64 bits): hasta 9,223,372,036,854,775,807
+
+LECCIÓN IMPORTANTE:
+  Siempre elija el tipo de dato apropiado según el rango de valores esperado.
+  Para cálculos monetarios o valores grandes, use int o long int.
+
+================================================================================
+CASOS DE PRUEBA SUGERIDOS
+================================================================================
+
+Caso 1 (Sin overflow):
+  Entrada: 3 días, 5000 Bs/día
+  Resultado esperado: 15000 Bs (dentro del rango de short int)
+
+Caso 2 (Con overflow):
+  Entrada: 5 días, 7000 Bs/día
+  Resultado esperado: 35000 Bs (excede short int, necesita long int)
+
+Caso 3 (Overflow extremo):
+  Entrada: 7 días, 10000 Bs/día
+  Resultado esperado: 70000 Bs (excede aún más el límite)
+
+================================================================================
+NOTAS PEDAGÓGICAS
+================================================================================
+
+Este ejemplo enseña:
+  ✓ La importancia de elegir el tipo de dato correcto
+  ✓ Qué es el desbordamiento de enteros (overflow)
+  ✓ Cómo detectar y prevenir errores de overflow
+  ✓ Diferencias entre short int, int y long int
+  ✓ Aplicación práctica en cálculos de nómina
+
+Conceptos clave:
+  - Rango de tipos de datos
+  - Overflow (desbordamiento)
+  - Representación binaria de números
+  - Elección apropiada de tipos de datos
+
+================================================================================
