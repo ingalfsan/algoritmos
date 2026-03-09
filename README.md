@@ -40,6 +40,7 @@ Tipos de datos, operadores (aritméticos, relacionales, lógicos), expresiones, 
 | [ejemplo1_tipos_datos](unidad3/ejemplo1_tipos_datos.c) | Tipos de datos: entero, real, carácter, cadena |
 | [ejemplo2_operadores](unidad3/ejemplo2_operadores.c) | Operadores aritméticos, relacionales y lógicos |
 | [ejemplo3_variables_constantes](unidad3/ejemplo3_variables_constantes.c) | Variables de trabajo, contador, acumulador y constantes |
+| [ejemplo4_desbordamiento_enteros](unidad3/ejemplo4_desbordamiento_enteros.c) | Desbordamiento de enteros (overflow) — Cálculo de salario semanal |
 
 ---
 
