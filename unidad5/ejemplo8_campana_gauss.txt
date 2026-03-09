@@ -1,0 +1,378 @@
+================================================================================
+  UNIDAD 5: PROGRAMACIÓN ESTRUCTURADA
+  Ejemplo 8: Campana de Gauss - Tabla de Galton (Quincunx)
+  Profesor: José Alfredo Sánchez
+================================================================================
+
+OBJETIVO:
+  Demostrar visualmente cómo se forma la distribución normal (campana de Gauss)
+  mediante la simulación del experimento de la Tabla de Galton, donde bolitas
+  caen a través de clavos y se acumulan formando una campana.
+
+PROBLEMA:
+  Simular 200 bolitas cayendo a través de una tabla con 10 niveles de clavos.
+  En cada nivel, cada bolita tiene 50% de probabilidad de desviarse a la 
+  izquierda o a la derecha. Mostrar gráficamente cómo se construye la 
+  distribución en tiempo real.
+
+================================================================================
+ANÁLISIS DEL PROBLEMA
+================================================================================
+
+ENTRADAS:
+  - NUM_BOLITAS: 200 (cantidad de bolitas a simular)
+  - NUM_NIVELES: 10 (niveles de clavos en la tabla)
+  - Decisiones aleatorias en cada nivel (izquierda/derecha)
+
+PROCESO:
+  Para cada bolita:
+    1. Iniciar en posición 0
+    2. Caer por 10 niveles de clavos
+    3. En cada nivel: decidir aleatoriamente izquierda (0) o derecha (1)
+    4. Sumar las decisiones para obtener posición final (0 a 10)
+    5. Incrementar contador de la columna correspondiente
+    6. Actualizar visualización cada 5 bolitas
+
+SALIDAS:
+  - Visualización de la tabla de clavos
+  - Histograma dinámico con asteriscos
+  - Estadísticas: promedio, moda, distribución
+  - Explicación del fenómeno
+
+EXPERIMENTO DE GALTON:
+  - Inventado por Sir Francis Galton en 1889
+  - Demuestra físicamente la distribución normal
+  - Cada bolita toma n decisiones binarias independientes
+  - La suma de decisiones sigue una distribución binomial
+  - Cuando n es grande, la binomial aproxima la normal
+
+================================================================================
+PSEUDOCÓDIGO
+================================================================================
+
+ALGORITMO SimulacionTablaGalton
+
+CONSTANTES
+  NUM_BOLITAS = 200
+  NUM_NIVELES = 10
+  NUM_COLUMNAS = 11  // (0 a NUM_NIVELES)
+
+INICIO
+  // Declaración de variables
+  ARREGLO columnas[NUM_COLUMNAS]
+  ENTERO bolita, posicion, decision, i
+  REAL suma_posiciones, promedio
+  
+  // Inicializar columnas en 0
+  PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+    columnas[i] ← 0
+  FIN_PARA
+  
+  // Inicializar generador aleatorio
+  INICIALIZAR_SEMILLA(TIEMPO_ACTUAL)
+  
+  // Mostrar introducción
+  ESCRIBIR "=== EXPERIMENTO DE LA TABLA DE GALTON ==="
+  ESCRIBIR "Cada bolita cae por", NUM_NIVELES, "niveles de clavos"
+  ESCRIBIR "En cada clavo: 50% izquierda, 50% derecha"
+  ESCRIBIR "Presione Enter para comenzar..."
+  ESPERAR_ENTER()
+  
+  suma_posiciones ← 0
+  
+  // Simular cada bolita
+  PARA bolita ← 1 HASTA NUM_BOLITAS HACER
+    // Cada bolita comienza en posición 0
+    posicion ← 0
+    
+    // La bolita cae por NUM_NIVELES niveles
+    PARA i ← 0 HASTA NUM_NIVELES - 1 HACER
+      // Decisión aleatoria: 0 = izquierda, 1 = derecha
+      decision ← ALEATORIO(0, 1)
+      posicion ← posicion + decision
+    FIN_PARA
+    
+    // La bolita cae en la columna 'posicion'
+    columnas[posicion] ← columnas[posicion] + 1
+    suma_posiciones ← suma_posiciones + posicion
+    
+    // Actualizar visualización cada 5 bolitas
+    SI (bolita MOD 5 = 0) O (bolita = NUM_BOLITAS) ENTONCES
+      LIMPIAR_PANTALLA()
+      DIBUJAR_TABLA_GALTON(columnas, bolita)
+      
+      SI bolita < NUM_BOLITAS ENTONCES
+        PAUSA_CORTA()
+      FIN_SI
+    FIN_SI
+  FIN_PARA
+  
+  // Calcular estadísticas
+  promedio ← suma_posiciones / NUM_BOLITAS
+  
+  // Encontrar columna con más bolitas (moda)
+  max_bolitas ← 0
+  columna_max ← 0
+  PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+    SI columnas[i] > max_bolitas ENTONCES
+      max_bolitas ← columnas[i]
+      columna_max ← i
+    FIN_SI
+  FIN_PARA
+  
+  // Mostrar análisis final
+  ESCRIBIR ""
+  ESCRIBIR "=== ANÁLISIS FINAL ==="
+  ESCRIBIR "Total de bolitas:", NUM_BOLITAS
+  ESCRIBIR "Niveles de clavos:", NUM_NIVELES
+  ESCRIBIR "Posición promedio:", promedio
+  ESCRIBIR "Posición teórica:", NUM_NIVELES / 2, "(centro)"
+  ESCRIBIR "Columna con más bolitas:", columna_max, "con", max_bolitas, "bolitas"
+  
+  // Explicación del fenómeno
+  ESCRIBIR ""
+  ESCRIBIR "=== ¿POR QUÉ SE FORMA LA CAMPANA? ==="
+  ESCRIBIR "Formas de llegar a cada columna:"
+  ESCRIBIR "  - Columna 0: 1 forma (todas a la izquierda)"
+  ESCRIBIR "  - Columna 5: 252 formas (5 izq. y 5 der.)"
+  ESCRIBIR "  - Columna 10: 1 forma (todas a la derecha)"
+  ESCRIBIR ""
+  ESCRIBIR "Hay MUCHAS MÁS formas de llegar al centro."
+  ESCRIBIR "Por eso, la mayoría de bolitas caen en el centro."
+FIN
+
+// Procedimiento para dibujar la tabla y el histograma
+PROCEDIMIENTO DIBUJAR_TABLA_GALTON(columnas[], bolita_actual)
+INICIO
+  LIMPIAR_PANTALLA()
+  
+  ESCRIBIR "=== TABLA DE GALTON ==="
+  ESCRIBIR "Bolita:", bolita_actual, "/", NUM_BOLITAS
+  ESCRIBIR ""
+  
+  // Dibujar tabla de clavos (triángulo)
+  ESCRIBIR "TABLA DE CLAVOS"
+  PARA nivel ← 0 HASTA NUM_NIVELES - 1 HACER
+    // Espacios para centrar
+    PARA i ← 0 HASTA (NUM_NIVELES - nivel - 1) HACER
+      ESCRIBIR " "
+    FIN_PARA
+    
+    // Dibujar clavos del nivel
+    PARA i ← 0 HASTA nivel HACER
+      ESCRIBIR "o "
+    FIN_PARA
+    ESCRIBIR NUEVA_LINEA
+  FIN_PARA
+  
+  ESCRIBIR ""
+  
+  // Dibujar histograma vertical
+  max_altura ← 20
+  
+  // Encontrar altura máxima actual
+  altura_max_actual ← 0
+  PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+    SI columnas[i] > altura_max_actual ENTONCES
+      altura_max_actual ← columnas[i]
+    FIN_SI
+  FIN_PARA
+  
+  // Dibujar de arriba hacia abajo
+  PARA nivel ← max_altura HASTA 1 HACER
+    ESCRIBIR "|"
+    PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+      SI columnas[i] >= nivel ENTONCES
+        ESCRIBIR "**"
+      SINO
+        ESCRIBIR "  "
+      FIN_SI
+    FIN_PARA
+    ESCRIBIR "|"
+    ESCRIBIR NUEVA_LINEA
+  FIN_PARA
+  
+  // Base del histograma
+  ESCRIBIR "|"
+  PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+    ESCRIBIR "=="
+  FIN_PARA
+  ESCRIBIR "|"
+  ESCRIBIR NUEVA_LINEA
+  
+  // Números de columna
+  PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+    ESCRIBIR i
+  FIN_PARA
+  ESCRIBIR NUEVA_LINEA
+  
+  // Mostrar conteo
+  ESCRIBIR "Distribución actual:"
+  PARA i ← 0 HASTA NUM_COLUMNAS - 1 HACER
+    ESCRIBIR "Col", i, ":", columnas[i], "bolitas"
+  FIN_PARA
+FIN_PROCEDIMIENTO
+
+================================================================================
+TABLA DE TRAZA (Ejemplo con 3 bolitas)
+================================================================================
+
+Simulación simplificada con NUM_NIVELES = 4 (para ilustrar)
+
+BOLITA 1:
+Nivel | Decisión | Posición acumulada
+------|----------|-------------------
+  0   |    1     |        1
+  1   |    0     |        1
+  2   |    1     |        2
+  3   |    1     |        3
+      
+Resultado: Cae en columna 3
+
+BOLITA 2:
+Nivel | Decisión | Posición acumulada
+------|----------|-------------------
+  0   |    0     |        0
+  1   |    1     |        1
+  2   |    0     |        1
+  3   |    1     |        2
+      
+Resultado: Cae en columna 2
+
+BOLITA 3:
+Nivel | Decisión | Posición acumulada
+------|----------|-------------------
+  0   |    1     |        1
+  1   |    1     |        2
+  2   |    0     |        2
+  3   |    1     |        3
+      
+Resultado: Cae en columna 3
+
+Estado del histograma después de 3 bolitas:
+Columna: 0  1  2  3  4
+Bolitas: 0  0  1  2  0
+
+================================================================================
+CONCEPTOS MATEMÁTICOS
+================================================================================
+
+1. DISTRIBUCIÓN BINOMIAL:
+   - Cada bolita realiza n ensayos de Bernoulli (éxito/fracaso)
+   - Probabilidad de éxito p = 0.5 (ir a la derecha)
+   - Posición final k sigue distribución Binomial(n, p)
+   - Probabilidad: P(X=k) = C(n,k) × p^k × (1-p)^(n-k)
+
+2. COEFICIENTES BINOMIALES:
+   Para n=10 niveles:
+   - C(10,0) = 1 forma de llegar a columna 0
+   - C(10,1) = 10 formas de llegar a columna 1
+   - C(10,5) = 252 formas de llegar a columna 5 (centro)
+   - C(10,9) = 10 formas de llegar a columna 9
+   - C(10,10) = 1 forma de llegar a columna 10
+
+3. APROXIMACIÓN A LA NORMAL:
+   Cuando n es grande (n ≥ 30), la binomial aproxima la normal:
+   - Media: μ = n × p = 10 × 0.5 = 5
+   - Varianza: σ² = n × p × (1-p) = 10 × 0.5 × 0.5 = 2.5
+   - Desviación estándar: σ = √2.5 ≈ 1.58
+
+4. TEOREMA CENTRAL DEL LÍMITE:
+   La suma de muchas variables aleatorias independientes
+   tiende a seguir una distribución normal, sin importar
+   la distribución original de cada variable.
+
+================================================================================
+VISUALIZACIÓN ESPERADA
+================================================================================
+
+Después de 200 bolitas, el histograma debería verse así:
+
+  |                    **                    |
+  |                    **                    |
+  |                  ******                  |
+  |                  ******                  |
+  |                ********                  |
+  |                **********                |
+  |              ************                |
+  |              **************              |
+  |            ******************            |
+  |          **********************          |
+  |        **************************        |
+  |      ******************************      |
+  |    **********************************    |
+  |  **************************************  |
+  |========================================|
+   0  1  2  3  4  5  6  7  8  9  10
+
+La forma de campana es más pronunciada en el centro (columnas 4, 5, 6)
+y disminuye hacia los extremos (columnas 0 y 10).
+
+================================================================================
+APLICACIONES EN LA VIDA REAL
+================================================================================
+
+Este mismo patrón de distribución normal aparece en:
+
+1. BIOLOGÍA:
+   - Alturas de personas (suma de efectos genéticos)
+   - Pesos de animales de la misma especie
+   - Tamaños de hojas en un árbol
+
+2. EDUCACIÓN:
+   - Calificaciones de exámenes (suma de conocimientos)
+   - Puntajes de pruebas estandarizadas
+   - Tiempos de resolución de problemas
+
+3. INDUSTRIA:
+   - Dimensiones de piezas manufacturadas
+   - Errores de medición
+   - Control de calidad
+
+4. CIENCIAS SOCIALES:
+   - Coeficiente intelectual (IQ)
+   - Ingresos (con transformación logarítmica)
+   - Tiempos de reacción
+
+5. FÍSICA:
+   - Errores experimentales
+   - Velocidades de moléculas en un gas
+   - Ruido en señales electrónicas
+
+================================================================================
+EJERCICIOS PROPUESTOS
+================================================================================
+
+1. Modificar NUM_NIVELES a 15 y observar cómo mejora la aproximación a la normal
+2. Cambiar la probabilidad de 50%-50% a 70%-30% (tabla sesgada)
+3. Calcular y mostrar la desviación estándar real de los datos
+4. Agregar un contador que muestre cuántas bolitas caen en el rango [4,6]
+5. Permitir al usuario ingresar NUM_BOLITAS y NUM_NIVELES
+6. Comparar dos simulaciones: una con 10 niveles y otra con 20
+7. Calcular el porcentaje de bolitas dentro de 1, 2 y 3 desviaciones estándar
+
+================================================================================
+NOTAS PEDAGÓGICAS
+================================================================================
+
+Este ejemplo enseña:
+  ✓ Visualización de conceptos probabilísticos abstractos
+  ✓ Relación entre distribución binomial y normal
+  ✓ Teorema Central del Límite de forma intuitiva
+  ✓ Construcción dinámica de histogramas
+  ✓ Uso de ciclos anidados para gráficos
+  ✓ Simulación de experimentos físicos
+
+Conceptos clave:
+  - Distribución binomial
+  - Distribución normal (campana de Gauss)
+  - Coeficientes binomiales
+  - Probabilidad y estadística
+  - Visualización de datos
+
+Historia:
+  Sir Francis Galton (1822-1911) inventó esta tabla para demostrar
+  la regresión a la media y la herencia de características. Es uno
+  de los experimentos más elegantes para visualizar la distribución normal.
+
+================================================================================

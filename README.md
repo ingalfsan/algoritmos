@@ -68,6 +68,7 @@ Estructuras de decisión (simple, doble, múltiple, anidada, selectiva) y estruc
 | [ejemplo5_ciclo_repetir](unidad5/ejemplo5_ciclo_repetir.c) | Ciclo repetir (`do-while`) — Menú interactivo |
 | [ejemplo6_ciclo_para](unidad5/ejemplo6_ciclo_para.c) | Ciclo para (`for`) y ciclos anidados — Factorial y tabla pitagórica |
 | [ejemplo7_numeros_aleatorios](unidad5/ejemplo7_numeros_aleatorios.c) | Números aleatorios (`rand()`) — Dado, oráculo y lotería |
+| [ejemplo8_campana_gauss](unidad5/ejemplo8_campana_gauss.c) | Campana de Gauss — Tabla de Galton (simulación visual) |
 
 ---
 
