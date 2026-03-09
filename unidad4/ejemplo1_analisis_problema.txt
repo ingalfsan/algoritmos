@@ -1,0 +1,63 @@
+ALGORITMO: Metodologia de Analisis - Calculo de Nomina
+DESCRIPCION: Aplica la metodologia de analisis de problemas:
+             1. Identificacion del problema
+             2. Datos de entrada
+             3. Datos de salida
+             4. Operaciones (calculos)
+             5. Pasos del proceso
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+ANALISIS DEL PROBLEMA:
+=======================
+1. PROBLEMA: Calcular el salario neto de un empleado.
+
+2. DATOS DE ENTRADA:
+   - nombre: Cadena (nombre del empleado)
+   - horasTrabajadas: Entero (horas trabajadas en el mes)
+   - tarifaHora: Real (pago por hora)
+
+3. DATOS DE SALIDA:
+   - salarioBruto: Real
+   - deduccion: Real (10% del salario bruto)
+   - salarioNeto: Real
+
+4. OPERACIONES (CALCULOS):
+   - salarioBruto = horasTrabajadas * tarifaHora
+   - deduccion = salarioBruto * 0.10
+   - salarioNeto = salarioBruto - deduccion
+
+5. PROCESO (pasos):
+   a) Solicitar nombre del empleado
+   b) Solicitar horas trabajadas
+   c) Solicitar tarifa por hora
+   d) Calcular salario bruto
+   e) Calcular deduccion (10%)
+   f) Calcular salario neto
+   g) Mostrar resultados
+
+PSEUDOCODIGO:
+
+Inicio
+    Cadena nombre
+    Entero horasTrabajadas
+    Real tarifaHora, salarioBruto, deduccion, salarioNeto
+
+    Escribir "=== Calculo de Nomina ==="
+    Escribir "Nombre del empleado: "
+    Leer nombre
+    Escribir "Horas trabajadas: "
+    Leer horasTrabajadas
+    Escribir "Tarifa por hora: "
+    Leer tarifaHora
+
+    salarioBruto = horasTrabajadas * tarifaHora
+    deduccion = salarioBruto * 0.10
+    salarioNeto = salarioBruto - deduccion
+
+    Escribir "--- Recibo de Pago ---"
+    Escribir "Empleado: ", nombre
+    Escribir "Salario bruto: ", salarioBruto
+    Escribir "Deduccion (10%): ", deduccion
+    Escribir "Salario neto: ", salarioNeto
+Fin

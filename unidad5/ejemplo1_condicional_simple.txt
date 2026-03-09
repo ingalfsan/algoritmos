@@ -1,0 +1,32 @@
+ALGORITMO: Condicional Simple y Doble
+DESCRIPCION: Determina si un estudiante esta aprobado o reprobado.
+             Demuestra estructuras Si-Entonces y Si-Entonces-Sino.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Real nota
+
+    Escribir "=== Sistema de Evaluacion ==="
+    Escribir "Ingrese la nota del estudiante (0-20): "
+    Leer nota
+
+    // Condicional simple
+    Si (nota >= 10) Entonces
+        Escribir "El estudiante esta APROBADO"
+    Fin Si
+
+    // Condicional doble
+    Si (nota >= 10) Entonces
+        Escribir "Felicidades, aprobaste con ", nota, " puntos"
+    Sino
+        Escribir "Reprobado con ", nota, " puntos"
+        Escribir "Debe presentar reparacion"
+    Fin Si
+Fin
+
+NOTA TEORICA:
+- Condicional Simple: Si (condicion) Entonces ... Fin Si
+- Condicional Doble: Si (condicion) Entonces ... Sino ... Fin Si

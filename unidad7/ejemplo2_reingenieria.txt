@@ -1,0 +1,75 @@
+ALGORITMO: Reingenieria de Programas
+DESCRIPCION: Muestra un programa ANTES y DESPUES de aplicar
+             reingenieria: mejorar estructura, legibilidad y
+             mantenibilidad sin cambiar su funcionalidad.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+========================================
+ANTES DE REINGENIERIA (codigo deficiente):
+========================================
+
+Inicio
+    Real a,b,c,d
+    Leer a
+    Leer b
+    c=a*b
+    d=c*0.16
+    c=c+d
+    Escribir c
+Fin
+
+Problemas detectados:
+- Nombres de variables sin significado (a, b, c, d)
+- Sin mensajes al usuario
+- Sin documentacion
+- Sin formato ni estructura clara
+- Valores magicos (0.16)
+
+========================================
+DESPUES DE REINGENIERIA (codigo mejorado):
+========================================
+
+Constante Real TASA_IVA = 0.16
+
+Funcion Real calcularSubtotal(Real precio, Entero cantidad)
+    Retornar precio * cantidad
+Fin Funcion
+
+Funcion Real calcularIVA(Real subtotal)
+    Retornar subtotal * TASA_IVA
+Fin Funcion
+
+Inicio
+    Real precioUnitario, subtotal, iva, total
+    Entero cantidad
+
+    Escribir "=== Factura de Venta ==="
+    Escribir "Precio unitario del producto: "
+    Leer precioUnitario
+    Escribir "Cantidad de productos: "
+    Leer cantidad
+
+    subtotal = calcularSubtotal(precioUnitario, cantidad)
+    iva = calcularIVA(subtotal)
+    total = subtotal + iva
+
+    Escribir "--- Detalle de Factura ---"
+    Escribir "Subtotal: ", subtotal
+    Escribir "IVA (16%): ", iva
+    Escribir "Total a pagar: ", total
+Fin
+
+MEJORAS APLICADAS:
+1. Nombres descriptivos de variables
+2. Uso de constantes en lugar de valores magicos
+3. Modularizacion con funciones
+4. Mensajes claros al usuario
+5. Documentacion del programa
+6. Formato e indentacion consistente
+
+PRINCIPIOS DE REINGENIERIA:
+- Mantener la funcionalidad original
+- Mejorar la estructura interna
+- Facilitar el mantenimiento futuro
+- Mejorar la legibilidad del codigo

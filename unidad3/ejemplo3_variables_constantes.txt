@@ -1,0 +1,58 @@
+ALGORITMO: Variables y Constantes
+DESCRIPCION: Demuestra los tipos de variables segun su uso:
+             - Variables de trabajo
+             - Variables contador
+             - Variables acumulador
+             Y el uso de constantes.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    // CONSTANTE
+    Constante Real PI = 3.14159
+    Constante Entero MAX_ESTUDIANTES = 5
+
+    // VARIABLES DE TRABAJO
+    Real radio, area
+
+    // VARIABLE CONTADOR
+    Entero contador
+
+    // VARIABLE ACUMULADOR
+    Real sumaNotas, nota
+
+    // Ejemplo 1: Uso de constante y variable de trabajo
+    Escribir "=== Calculo de Area de Circulo ==="
+    Escribir "Ingrese el radio: "
+    Leer radio
+    area = PI * radio * radio
+    Escribir "El area es: ", area
+
+    // Ejemplo 2: Uso de contador y acumulador
+    Escribir "=== Suma de Notas de Estudiantes ==="
+    sumaNotas = 0
+    contador = 1
+
+    Mientras (contador <= MAX_ESTUDIANTES) Hacer
+        Escribir "Ingrese nota del estudiante ", contador, ": "
+        Leer nota
+        sumaNotas = sumaNotas + nota    // acumulador
+        contador = contador + 1           // contador
+    Fin Mientras
+
+    Escribir "La suma total de notas es: ", sumaNotas
+    Escribir "El promedio es: ", sumaNotas / MAX_ESTUDIANTES
+Fin
+
+CLASIFICACION DE VARIABLES:
+- Segun su contenido:
+  * Numericas: almacenan numeros (edad = 20, precio = 9.99)
+  * Logicas: almacenan verdadero/falso (aprobado = verdadero)
+  * Alfanumericas: almacenan texto (nombre = "Ana")
+
+- Segun su uso:
+  * De trabajo: almacenan resultados intermedios (area, resultado)
+  * Contador: se incrementan de uno en uno (i = i + 1)
+  * Acumulador: acumulan sumas sucesivas (suma = suma + valor)

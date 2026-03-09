@@ -1,0 +1,39 @@
+ALGORITMO: Ciclo Para (For) y Ciclos Anidados
+DESCRIPCION: Ejemplos del ciclo Para:
+             1. Factorial de un numero
+             2. Ciclos anidados: tabla pitagorica
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    // Ejemplo 1: Factorial
+    Entero n, factorial, i
+    Escribir "=== Factorial de un Numero ==="
+    Escribir "Ingrese un numero: "
+    Leer n
+
+    factorial = 1
+    Para i = 1 Hasta n Con Paso 1 Hacer
+        factorial = factorial * i
+    Fin Para
+
+    Escribir "El factorial de ", n, " es: ", factorial
+
+    // Ejemplo 2: Ciclos anidados - Tabla pitagorica
+    Entero fila, columna
+    Escribir "=== Tabla Pitagorica (1 al 5) ==="
+
+    // Encabezado
+    Escribir "     1   2   3   4   5"
+    Escribir "   ___________________"
+
+    Para fila = 1 Hasta 5 Con Paso 1 Hacer
+        Escribir fila, " |"
+        Para columna = 1 Hasta 5 Con Paso 1 Hacer
+            Escribir fila * columna, "  "
+        Fin Para
+        Escribir ""   // Salto de linea
+    Fin Para
+Fin

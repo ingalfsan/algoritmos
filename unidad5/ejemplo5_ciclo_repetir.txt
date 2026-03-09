@@ -1,0 +1,54 @@
+ALGORITMO: Ciclo Repetir-Hasta (Do-While)
+DESCRIPCION: Menu con validacion usando Repetir-Hasta.
+             El ciclo se ejecuta al menos una vez.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Entero opcion
+    Real numero, resultado
+
+    Repetir
+        Escribir "=== Menu Principal ==="
+        Escribir "1. Calcular cuadrado de un numero"
+        Escribir "2. Calcular cubo de un numero"
+        Escribir "3. Verificar si es par o impar"
+        Escribir "4. Salir"
+        Escribir "Seleccione una opcion: "
+        Leer opcion
+
+        Segun Sea (opcion) Hacer
+            Caso 1:
+                Escribir "Ingrese un numero: "
+                Leer numero
+                resultado = numero * numero
+                Escribir "El cuadrado de ", numero, " es: ", resultado
+            Caso 2:
+                Escribir "Ingrese un numero: "
+                Leer numero
+                resultado = numero * numero * numero
+                Escribir "El cubo de ", numero, " es: ", resultado
+            Caso 3:
+                Escribir "Ingrese un numero entero: "
+                Leer numero
+                Si (numero MOD 2 == 0) Entonces
+                    Escribir numero, " es PAR"
+                Sino
+                    Escribir numero, " es IMPAR"
+                Fin Si
+            Caso 4:
+                Escribir "Saliendo del programa..."
+            De Otro Modo:
+                Escribir "Opcion no valida. Intente de nuevo."
+        Fin Segun
+
+    Hasta Que (opcion == 4)
+
+    Escribir "Programa finalizado."
+Fin
+
+NOTA: La diferencia entre Mientras y Repetir:
+- Mientras: evalua la condicion ANTES de ejecutar (puede no ejecutarse nunca)
+- Repetir: evalua la condicion DESPUES de ejecutar (se ejecuta al menos una vez)

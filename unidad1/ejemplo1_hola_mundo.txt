@@ -1,0 +1,11 @@
+ALGORITMO: Hola Mundo
+DESCRIPCION: Primer programa - Muestra un mensaje en pantalla.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Escribir "Hola Mundo"
+    Escribir "Bienvenido a Algoritmos y Programacion"
+Fin

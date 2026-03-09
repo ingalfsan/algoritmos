@@ -1,0 +1,62 @@
+ALGORITMO: Prueba de Caja Negra
+DESCRIPCION: Demuestra la tecnica de prueba de caja negra.
+             Se prueban las entradas y salidas sin conocer
+             el codigo interno. Se usa un programa que clasifica
+             triangulos segun sus lados.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Funcion Cadena clasificarTriangulo(Real a, Real b, Real c)
+    // Primero verificar si es un triangulo valido
+    Si (a + b <= c) O (a + c <= b) O (b + c <= a) Entonces
+        Retornar "No es un triangulo valido"
+    Fin Si
+
+    Si (a == b) Y (b == c) Entonces
+        Retornar "Equilatero"
+    Sino Si (a == b) O (a == c) O (b == c) Entonces
+        Retornar "Isosceles"
+    Sino
+        Retornar "Escaleno"
+    Fin Si
+Fin Funcion
+
+Inicio
+    Real lado1, lado2, lado3
+    Cadena tipo
+
+    Escribir "=== Clasificador de Triangulos ==="
+    Escribir "Ingrese el lado 1: "
+    Leer lado1
+    Escribir "Ingrese el lado 2: "
+    Leer lado2
+    Escribir "Ingrese el lado 3: "
+    Leer lado3
+
+    tipo = clasificarTriangulo(lado1, lado2, lado3)
+    Escribir "Resultado: ", tipo
+Fin
+
+PRUEBAS DE CAJA NEGRA:
+=======================
+Se disenan casos de prueba basados SOLO en entradas y salidas esperadas,
+sin conocer la implementacion interna.
+
++------+--------+--------+--------+---------------------------+
+| Caso | Lado 1 | Lado 2 | Lado 3 | Resultado Esperado        |
++------+--------+--------+--------+---------------------------+
+|  1   |   5    |   5    |   5    | Equilatero                |
+|  2   |   5    |   5    |   3    | Isosceles                 |
+|  3   |   3    |   4    |   5    | Escaleno                  |
+|  4   |   1    |   1    |   3    | No es un triangulo valido |
+|  5   |   0    |   5    |   5    | No es un triangulo valido |
+|  6   |  -1    |   5    |   5    | No es un triangulo valido |
+|  7   |   7    |   7    |   3    | Isosceles                 |
++------+--------+--------+--------+---------------------------+
+
+TECNICA DE CAJA NEGRA:
+- No se examina el codigo fuente
+- Se prueban: valores normales, valores limite, valores invalidos
+- Se verifica que la salida sea correcta para cada entrada

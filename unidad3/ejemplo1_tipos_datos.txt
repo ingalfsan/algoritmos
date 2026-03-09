@@ -1,0 +1,37 @@
+ALGORITMO: Tipos de Datos y Variables
+DESCRIPCION: Demuestra los diferentes tipos de datos:
+             enteros, reales, caracteres y cadenas.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    // Declaracion de variables por tipo de dato
+    Entero edad, cantidad
+    Real estatura, peso
+    Caracter inicial
+    Cadena nombre
+
+    // Asignacion de valores
+    edad = 20
+    cantidad = 5
+    estatura = 1.75
+    peso = 68.5
+    inicial = 'J'
+    nombre = "Juan Perez"
+
+    // Salida de cada tipo de dato
+    Escribir "=== Tipos de Datos ==="
+    Escribir "Nombre (cadena): ", nombre
+    Escribir "Inicial (caracter): ", inicial
+    Escribir "Edad (entero): ", edad
+    Escribir "Cantidad (entero): ", cantidad
+    Escribir "Estatura (real): ", estatura
+    Escribir "Peso (real): ", peso
+Fin
+
+NOTA: 
+- Dato: valor crudo sin contexto (ej: 20)
+- Informacion: dato con significado (ej: edad = 20 anios)
+- Tipos de datos basicos: Entero, Real, Caracter, Logico (booleano)

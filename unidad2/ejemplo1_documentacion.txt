@@ -1,0 +1,53 @@
+ALGORITMO: Ejemplo de Documentacion y Estandares
+DESCRIPCION: Calcula el promedio de tres notas.
+             Demuestra buenas practicas de documentacion:
+             - Encabezado del programa
+             - Comentarios en cada seccion
+             - Nombres descriptivos de variables
+             - Indentacion correcta
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+// Programa: Calculo de Promedio de Notas
+// Autor: [Nombre del estudiante]
+// Fecha: [Fecha de elaboracion]
+// Descripcion: Lee tres notas y calcula el promedio
+
+Inicio
+    // Declaracion de variables
+    Real nota1, nota2, nota3
+    Real sumaNotas, promedio
+
+    // Entrada de datos
+    Escribir "=== Calculo de Promedio de Notas ==="
+    Escribir "Ingrese la primera nota: "
+    Leer nota1
+    Escribir "Ingrese la segunda nota: "
+    Leer nota2
+    Escribir "Ingrese la tercera nota: "
+    Leer nota3
+
+    // Proceso: calculo del promedio
+    sumaNotas = nota1 + nota2 + nota3
+    promedio = sumaNotas / 3
+
+    // Salida de resultados
+    Escribir "La suma de las notas es: ", sumaNotas
+    Escribir "El promedio es: ", promedio
+Fin
+
+MANUAL DE USUARIO (ejemplo simplificado):
+-------------------------------------------
+1. Ejecute el programa.
+2. Ingrese las tres notas cuando se le solicite (valores entre 0 y 20).
+3. El programa mostrara la suma y el promedio de las notas.
+
+MANUAL DEL PROGRAMA (ejemplo simplificado):
+-------------------------------------------
+- Lenguaje: C estandar (ANSI C)
+- Variables de entrada: nota1, nota2, nota3 (tipo float)
+- Variables de proceso: sumaNotas (tipo float)
+- Variables de salida: promedio (tipo float)
+- Formula: promedio = (nota1 + nota2 + nota3) / 3

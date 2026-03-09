@@ -1,0 +1,53 @@
+ALGORITMO: Conversion de Moneda
+DESCRIPCION: Convierte bolivares a dolares y euros.
+             Ejemplo completo de analisis y planteamiento.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+ANALISIS DEL PROBLEMA:
+=======================
+1. PROBLEMA: Convertir una cantidad en bolivares a dolares y euros.
+
+2. DATOS DE ENTRADA:
+   - montoBolivares: Real (cantidad en bolivares)
+   - tasaDolar: Real (tasa de cambio Bs/USD)
+   - tasaEuro: Real (tasa de cambio Bs/EUR)
+
+3. DATOS DE SALIDA:
+   - montoDolares: Real
+   - montoEuros: Real
+
+4. OPERACIONES:
+   - montoDolares = montoBolivares / tasaDolar
+   - montoEuros = montoBolivares / tasaEuro
+
+5. PROCESO:
+   a) Leer monto en bolivares
+   b) Leer tasa del dolar
+   c) Leer tasa del euro
+   d) Calcular equivalente en dolares
+   e) Calcular equivalente en euros
+   f) Mostrar resultados
+
+PSEUDOCODIGO:
+
+Inicio
+    Real montoBolivares, tasaDolar, tasaEuro
+    Real montoDolares, montoEuros
+
+    Escribir "=== Conversor de Moneda ==="
+    Escribir "Monto en Bolivares: "
+    Leer montoBolivares
+    Escribir "Tasa de cambio Bs/USD: "
+    Leer tasaDolar
+    Escribir "Tasa de cambio Bs/EUR: "
+    Leer tasaEuro
+
+    montoDolares = montoBolivares / tasaDolar
+    montoEuros = montoBolivares / tasaEuro
+
+    Escribir "--- Resultado ---"
+    Escribir montoBolivares, " Bs equivalen a:"
+    Escribir montoDolares, " USD (dolares)"
+    Escribir montoEuros, " EUR (euros)"
+Fin

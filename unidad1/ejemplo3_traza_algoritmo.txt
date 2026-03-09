@@ -1,0 +1,26 @@
+ALGORITMO: Traza de un Algoritmo (Corrida en Frio)
+DESCRIPCION: Convierte grados Celsius a Fahrenheit.
+             Se incluye la traza paso a paso.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Real celsius, fahrenheit
+    Escribir "Ingrese la temperatura en Celsius: "
+    Leer celsius
+    fahrenheit = (celsius * 9 / 5) + 32
+    Escribir "La temperatura en Fahrenheit es: ", fahrenheit
+Fin
+
+TRAZA (Corrida en frio con entrada celsius = 100):
++------+----------+-------------+-----------------------------------+
+| Paso | celsius  | fahrenheit  |  Salida / Accion                  |
++------+----------+-------------+-----------------------------------+
+|  1   |    ?     |     ?       | Se declaran variables             |
+|  2   |    ?     |     ?       | "Ingrese la temperatura..."       |
+|  3   |  100.0   |     ?       | Usuario ingresa 100               |
+|  4   |  100.0   |   212.0     | fahrenheit=(100*9/5)+32=212       |
+|  5   |  100.0   |   212.0     | "La temperatura en F es: 212.0"   |
++------+----------+-------------+-----------------------------------+

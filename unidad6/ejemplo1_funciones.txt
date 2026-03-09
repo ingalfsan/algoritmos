@@ -1,0 +1,65 @@
+ALGORITMO: Funciones y Procedimientos
+DESCRIPCION: Demuestra la definicion y llamada de funciones
+             y procedimientos (funciones sin retorno).
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+// Procedimiento: no retorna valor
+Procedimiento mostrarLinea()
+    Escribir "================================"
+Fin Procedimiento
+
+// Funcion: retorna un valor
+Funcion Real calcularAreaCirculo(Real radio)
+    Constante Real PI = 3.14159
+    Retornar PI * radio * radio
+Fin Funcion
+
+// Funcion con multiple parametros
+Funcion Real calcularIMC(Real peso, Real estatura)
+    Retornar peso / (estatura * estatura)
+Fin Funcion
+
+// Procedimiento con parametro
+Procedimiento clasificarIMC(Real imc)
+    Si (imc < 18.5) Entonces
+        Escribir "Clasificacion: Bajo peso"
+    Sino Si (imc < 25) Entonces
+        Escribir "Clasificacion: Peso normal"
+    Sino Si (imc < 30) Entonces
+        Escribir "Clasificacion: Sobrepeso"
+    Sino
+        Escribir "Clasificacion: Obesidad"
+    Fin Si
+Fin Procedimiento
+
+// Programa principal
+Inicio
+    Real radio, area, peso, estatura, imc
+
+    mostrarLinea()
+    Escribir " PROGRAMA DE FUNCIONES"
+    mostrarLinea()
+
+    // Uso de funcion calcularAreaCirculo
+    Escribir "Ingrese el radio del circulo: "
+    Leer radio
+    area = calcularAreaCirculo(radio)
+    Escribir "El area del circulo es: ", area
+
+    mostrarLinea()
+
+    // Uso de funciones calcularIMC y clasificarIMC
+    Escribir "Ingrese su peso (kg): "
+    Leer peso
+    Escribir "Ingrese su estatura (m): "
+    Leer estatura
+
+    imc = calcularIMC(peso, estatura)
+    Escribir "Su IMC es: ", imc
+    clasificarIMC(imc)
+
+    mostrarLinea()
+Fin

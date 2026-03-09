@@ -1,0 +1,35 @@
+ALGORITMO: Partes de un Algoritmo
+DESCRIPCION: Demuestra las tres partes fundamentales de un algoritmo:
+             Entrada, Proceso y Salida.
+             Calcula el area de un rectangulo.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    // ENTRADA: Lectura de datos
+    Real base, altura, area
+    Escribir "Ingrese la base del rectangulo: "
+    Leer base
+    Escribir "Ingrese la altura del rectangulo: "
+    Leer altura
+
+    // PROCESO: Calculo
+    area = base * altura
+
+    // SALIDA: Resultado
+    Escribir "El area del rectangulo es: ", area
+Fin
+
+TRAZA (Corrida en frio):
++------+---------+---------+--------+------------------------------+
+| Paso |  base   | altura  |  area  |  Salida en pantalla          |
++------+---------+---------+--------+------------------------------+
+|  1   |   ?     |   ?     |   ?    | "Ingrese la base..."         |
+|  2   |  5.0    |   ?     |   ?    | (usuario ingresa 5)          |
+|  3   |  5.0    |   ?     |   ?    | "Ingrese la altura..."       |
+|  4   |  5.0    |  3.0    |   ?    | (usuario ingresa 3)          |
+|  5   |  5.0    |  3.0    | 15.0   | (calculo: 5*3=15)            |
+|  6   |  5.0    |  3.0    | 15.0   | "El area es: 15.0"           |
++------+---------+---------+--------+------------------------------+

@@ -1,0 +1,45 @@
+ALGORITMO: Ciclo Mientras (While)
+DESCRIPCION: Ejemplos del ciclo Mientras:
+             1. Tabla de multiplicar
+             2. Suma de numeros hasta que el usuario ingrese 0
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Entero numero, i, resultado
+
+    // Ejemplo 1: Tabla de multiplicar
+    Escribir "=== Tabla de Multiplicar ==="
+    Escribir "Ingrese un numero: "
+    Leer numero
+
+    i = 1
+    Mientras (i <= 10) Hacer
+        resultado = numero * i
+        Escribir numero, " x ", i, " = ", resultado
+        i = i + 1
+    Fin Mientras
+
+    // Ejemplo 2: Suma hasta ingresar 0 (centinela)
+    Escribir "=== Suma de Numeros ==="
+    Escribir "Ingrese numeros (0 para terminar):"
+    Real valor, suma
+    suma = 0
+    Entero cantidadNumeros
+    cantidadNumeros = 0
+
+    Escribir "Numero: "
+    Leer valor
+
+    Mientras (valor != 0) Hacer
+        suma = suma + valor
+        cantidadNumeros = cantidadNumeros + 1
+        Escribir "Numero: "
+        Leer valor
+    Fin Mientras
+
+    Escribir "Se ingresaron ", cantidadNumeros, " numeros"
+    Escribir "La suma total es: ", suma
+Fin

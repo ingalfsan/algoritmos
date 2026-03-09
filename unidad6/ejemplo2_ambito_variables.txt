@@ -1,0 +1,67 @@
+ALGORITMO: Ambito de Variables y Pase de Parametros
+DESCRIPCION: Demuestra variables locales, globales
+             y el pase de parametros por valor y por referencia.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+// Variable GLOBAL: accesible desde cualquier parte
+Entero contadorGlobal = 0
+
+// Procedimiento que usa variable global
+Procedimiento incrementarContador()
+    contadorGlobal = contadorGlobal + 1
+    Escribir "Contador global: ", contadorGlobal
+Fin Procedimiento
+
+// Funcion con variable LOCAL
+Funcion Entero sumar(Entero a, Entero b)
+    // 'resultado' es LOCAL: solo existe dentro de esta funcion
+    Entero resultado
+    resultado = a + b
+    Retornar resultado
+Fin Funcion
+
+// Procedimiento con pase por VALOR (no modifica el original)
+Procedimiento duplicarPorValor(Entero numero)
+    numero = numero * 2
+    Escribir "Dentro de la funcion (por valor): ", numero
+Fin Procedimiento
+
+// Procedimiento con pase por REFERENCIA (modifica el original)
+Procedimiento duplicarPorReferencia(Referencia Entero numero)
+    numero = numero * 2
+    Escribir "Dentro de la funcion (por referencia): ", numero
+Fin Procedimiento
+
+Inicio
+    Entero x, y, suma
+
+    // Uso de variable global
+    Escribir "=== Variables Globales ==="
+    incrementarContador()
+    incrementarContador()
+    incrementarContador()
+
+    // Uso de variables locales
+    Escribir "=== Variables Locales ==="
+    x = 10
+    y = 20
+    suma = sumar(x, y)
+    Escribir x, " + ", y, " = ", suma
+
+    // Pase por valor
+    Escribir "=== Pase por Valor ==="
+    x = 5
+    Escribir "Antes de la funcion: x = ", x
+    duplicarPorValor(x)
+    Escribir "Despues de la funcion: x = ", x    // x NO cambia
+
+    // Pase por referencia
+    Escribir "=== Pase por Referencia ==="
+    x = 5
+    Escribir "Antes de la funcion: x = ", x
+    duplicarPorReferencia(x)
+    Escribir "Despues de la funcion: x = ", x    // x SI cambia
+Fin

@@ -1,0 +1,38 @@
+ALGORITMO: Condicionales Anidadas y Multiples
+DESCRIPCION: Clasifica la nota de un estudiante en categorias
+             usando condicionales anidadas.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Real nota
+    Cadena clasificacion
+
+    Escribir "=== Clasificacion de Notas ==="
+    Escribir "Ingrese la nota (0-20): "
+    Leer nota
+
+    // Condicionales anidadas
+    Si (nota >= 18) Entonces
+        clasificacion = "Excelente"
+    Sino
+        Si (nota >= 15) Entonces
+            clasificacion = "Bueno"
+        Sino
+            Si (nota >= 10) Entonces
+                clasificacion = "Aprobado"
+            Sino
+                Si (nota >= 5) Entonces
+                    clasificacion = "Insuficiente"
+                Sino
+                    clasificacion = "Deficiente"
+                Fin Si
+            Fin Si
+        Fin Si
+    Fin Si
+
+    Escribir "Nota: ", nota
+    Escribir "Clasificacion: ", clasificacion
+Fin

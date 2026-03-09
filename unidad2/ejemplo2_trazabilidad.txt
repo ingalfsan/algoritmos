@@ -1,0 +1,37 @@
+ALGORITMO: Trazabilidad de un Algoritmo
+DESCRIPCION: Calcula el precio final de un producto aplicando descuento.
+             Se incluye tabla de trazabilidad completa.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Real precio, porcentajeDescuento, montoDescuento, precioFinal
+
+    Escribir "Ingrese el precio del producto: "
+    Leer precio
+    Escribir "Ingrese el porcentaje de descuento: "
+    Leer porcentajeDescuento
+
+    montoDescuento = precio * porcentajeDescuento / 100
+    precioFinal = precio - montoDescuento
+
+    Escribir "Monto del descuento: ", montoDescuento
+    Escribir "Precio final: ", precioFinal
+Fin
+
+TABLA DE TRAZABILIDAD (entrada: precio=200, porcentajeDescuento=15):
++------+--------+------------+----------+-------------+----------------------+
+| Paso | precio | %Descuento | montoDesc| precioFinal | Accion               |
++------+--------+------------+----------+-------------+----------------------+
+|  1   |   ?    |     ?      |    ?     |      ?      | Declarar variables   |
+|  2   |   ?    |     ?      |    ?     |      ?      | Pedir precio         |
+|  3   | 200.0  |     ?      |    ?     |      ?      | Leer 200             |
+|  4   | 200.0  |     ?      |    ?     |      ?      | Pedir descuento      |
+|  5   | 200.0  |   15.0     |    ?     |      ?      | Leer 15              |
+|  6   | 200.0  |   15.0     |  30.0    |      ?      | 200*15/100 = 30      |
+|  7   | 200.0  |   15.0     |  30.0    |   170.0     | 200 - 30 = 170       |
+|  8   | 200.0  |   15.0     |  30.0    |   170.0     | Mostrar descuento:30 |
+|  9   | 200.0  |   15.0     |  30.0    |   170.0     | Mostrar final: 170   |
++------+--------+------------+----------+-------------+----------------------+

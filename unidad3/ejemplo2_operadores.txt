@@ -1,0 +1,49 @@
+ALGORITMO: Operadores Aritmeticos, Relacionales y Logicos
+DESCRIPCION: Demuestra el uso de los diferentes tipos de operadores.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Entero a, b
+    Real resultado
+    Logico comparacion
+
+    a = 15
+    b = 4
+
+    // OPERADORES ARITMETICOS
+    Escribir "=== Operadores Aritmeticos ==="
+    Escribir "a = ", a, " b = ", b
+    Escribir "Suma (a + b) = ", a + b
+    Escribir "Resta (a - b) = ", a - b
+    Escribir "Multiplicacion (a * b) = ", a * b
+    Escribir "Division (a / b) = ", a / b
+    Escribir "Modulo (a MOD b) = ", a MOD b
+
+    // OPERADORES RELACIONALES
+    Escribir "=== Operadores Relacionales ==="
+    Escribir "a > b  : ", a > b
+    Escribir "a < b  : ", a < b
+    Escribir "a >= b : ", a >= b
+    Escribir "a <= b : ", a <= b
+    Escribir "a == b : ", a == b
+    Escribir "a != b : ", a != b
+
+    // OPERADORES LOGICOS
+    Escribir "=== Operadores Logicos ==="
+    Escribir "(a > 10) Y (b < 10) : ", (a > 10) Y (b < 10)
+    Escribir "(a > 20) O (b < 10) : ", (a > 20) O (b < 10)
+    Escribir "NO (a > 10) : ", NO (a > 10)
+Fin
+
+JERARQUIA DE OPERADORES:
+1. Parentesis ()
+2. Potencia ^
+3. Multiplicacion *, Division /, Modulo MOD
+4. Suma +, Resta -
+5. Relacionales: <, >, <=, >=, ==, !=
+6. Logico NO (NOT)
+7. Logico Y (AND)
+8. Logico O (OR)

@@ -1,0 +1,47 @@
+ALGORITMO: Estructura Selectiva (Segun Sea / Switch)
+DESCRIPCION: Menu de operaciones aritmeticas usando
+             estructura selectiva multiple.
+AUTOR: Prof. Jose Alfredo Sanchez
+FECHA: 2026
+
+PSEUDOCODIGO:
+
+Inicio
+    Entero opcion
+    Real num1, num2, resultado
+
+    Escribir "=== Calculadora Basica ==="
+    Escribir "Ingrese primer numero: "
+    Leer num1
+    Escribir "Ingrese segundo numero: "
+    Leer num2
+
+    Escribir "Seleccione la operacion:"
+    Escribir "1. Suma"
+    Escribir "2. Resta"
+    Escribir "3. Multiplicacion"
+    Escribir "4. Division"
+    Escribir "Opcion: "
+    Leer opcion
+
+    Segun Sea (opcion) Hacer
+        Caso 1:
+            resultado = num1 + num2
+            Escribir "Resultado: ", num1, " + ", num2, " = ", resultado
+        Caso 2:
+            resultado = num1 - num2
+            Escribir "Resultado: ", num1, " - ", num2, " = ", resultado
+        Caso 3:
+            resultado = num1 * num2
+            Escribir "Resultado: ", num1, " * ", num2, " = ", resultado
+        Caso 4:
+            Si (num2 != 0) Entonces
+                resultado = num1 / num2
+                Escribir "Resultado: ", num1, " / ", num2, " = ", resultado
+            Sino
+                Escribir "Error: Division por cero"
+            Fin Si
+        De Otro Modo:
+            Escribir "Opcion no valida"
+    Fin Segun
+Fin
