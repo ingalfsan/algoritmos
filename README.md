@@ -111,18 +111,91 @@ algoritmos/
 
 ## Cómo Compilar y Ejecutar
 
-Cada ejemplo puede compilarse con cualquier compilador de C estándar. Por ejemplo con **GCC**:
+### Opción 1: Compilador en Línea (Más Fácil)
+
+Si no quieres instalar nada, puedes usar **OneCompiler**:
+
+1. Visita [https://onecompiler.com/c](https://onecompiler.com/c)
+2. Copia el código del archivo `.c` que quieras probar
+3. Pégalo en el editor
+4. Haz clic en **Run** (▶️)
+5. Ingresa los datos cuando el programa lo solicite
+
+**Nota:** Algunos ejemplos con animaciones (como `ejemplo8_campana_gauss.c`) pueden no funcionar correctamente en compiladores en línea debido a las funciones de limpieza de pantalla.
+
+### Opción 2: Instalar GCC en tu Computadora
+
+#### En Windows:
+
+1. **Descargar MinGW-w64:**
+   - Visita [https://www.mingw-w64.org/downloads/](https://www.mingw-w64.org/downloads/)
+   - O descarga directamente desde [WinLibs](https://winlibs.com/) (recomendado)
+   - Descarga la versión más reciente (por ejemplo: `GCC 13.2.0 + MinGW-w64`)
+
+2. **Instalar:**
+   - Extrae el archivo ZIP en `C:\mingw64`
+   - Agrega `C:\mingw64\bin` a las variables de entorno PATH:
+     - Busca "Variables de entorno" en el menú de Windows
+     - Edita la variable `Path` del sistema
+     - Agrega `C:\mingw64\bin`
+
+3. **Verificar instalación:**
+   ```cmd
+   gcc --version
+   ```
+
+4. **Compilar y ejecutar:**
+   ```cmd
+   gcc ejemplo1_hola_mundo.c -o ejemplo1.exe
+   ejemplo1.exe
+   ```
+
+#### En Linux (Ubuntu/Debian):
+
+1. **Instalar GCC:**
+   ```bash
+   sudo apt update
+   sudo apt install build-essential
+   ```
+
+2. **Verificar instalación:**
+   ```bash
+   gcc --version
+   ```
+
+3. **Compilar y ejecutar:**
+   ```bash
+   gcc ejemplo1_hola_mundo.c -o ejemplo1
+   ./ejemplo1
+   ```
+
+#### En Linux (Fedora/RHEL):
 
 ```bash
-gcc ejemplo1_hola_mundo.c -o ejemplo1
-./ejemplo1
+sudo dnf install gcc
 ```
 
-En **Windows** con MinGW:
+#### En macOS:
 
-```cmd
-gcc ejemplo1_hola_mundo.c -o ejemplo1.exe
-ejemplo1.exe
+```bash
+xcode-select --install
+```
+
+### Comandos de Compilación Comunes
+
+**Compilación básica:**
+```bash
+gcc archivo.c -o programa
+```
+
+**Con advertencias (recomendado):**
+```bash
+gcc -Wall archivo.c -o programa
+```
+
+**Con biblioteca matemática (para ejemplos que usan math.h):**
+```bash
+gcc archivo.c -o programa -lm
 ```
 
 ## Formato de los Ejemplos
