@@ -207,4 +207,23 @@ Cada ejemplo incluye dos archivos:
 
 ---
 
+## Plan de Evaluación
+
+**Período:** 02 de marzo — 19 de junio de 2026 (16 semanas)
+
+Cada objetivo tiene un valor de **20%** sobre la nota final. Las evaluaciones consisten en asignaciones prácticas de programas en lenguaje C. Ver detalles completos en [Evaluacion.md](Evaluacion.md).
+
+| Objetivo | Contenido | Unidades | Semanas | Período | Valor |
+|:--------:|-----------|:--------:|:-------:|---------|:-----:|
+| 1 | Algoritmos, representación y estándares de calidad | 1 y 2 | 3 | 02 Mar — 20 Mar | 20% |
+| 2 | Datos, operadores, expresiones y variables | 3 | 3 | 23 Mar — 10 Abr | 20% |
+| 3 | Análisis de problemas y estructuras de decisión | 4 y 5a | 3 | 13 Abr — 01 May | 20% |
+| 4 | Estructuras iterativas y programación modular | 5b y 6 | 4 | 04 May — 29 May | 20% |
+| 5 | Mantenimiento de programas e integración | 7 | 3 | 01 Jun — 19 Jun | 20% |
+| | | | **16** | | **100%** |
+
+> **Nota:** Unidad 5a = Estructuras de decisión · Unidad 5b = Estructuras iterativas
+
+---
+
 *Asignatura: Algoritmos y Programación — Prof. José Alfredo Sánchez*
