@@ -211,7 +211,7 @@ Cada ejemplo incluye dos archivos:
 
 **Período:** 02 de marzo — 19 de junio de 2026 (16 semanas)
 
-Cada objetivo tiene un valor de **20%** sobre la nota final. Las evaluaciones consisten en asignaciones prácticas de programas en lenguaje C. Ver detalles completos en [Evaluacion.md](Evaluacion.md).
+Cada objetivo tiene un valor de **20%** sobre la nota final. Las evaluaciones consisten en asignaciones prácticas de programas en lenguaje C. 
 
 | Objetivo | Contenido | Unidades | Semanas | Período | Valor |
 |:--------:|-----------|:--------:|:-------:|---------|:-----:|
