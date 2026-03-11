@@ -1,0 +1,195 @@
+/*
+ * UNIDAD 3: DATOS Y ENTIDADES PRIMITIVAS
+ * Ejemplo 6: Generador de Contraseñas Aleatorias
+ * 
+ * OBJETIVO:
+ * Generar contraseñas aleatorias de 10 caracteres utilizando códigos ASCII,
+ * demostrando el uso de números aleatorios, conversión de tipos y 
+ * manipulación de caracteres.
+ *
+ * CONCEPTOS CLAVE:
+ * - Números aleatorios (rand(), srand())
+ * - Tipo de dato char
+ * - Conversión entre int y char
+ * - Códigos ASCII
+ * - Arrays de caracteres (cadenas)
+ * - Validación de rangos
+ */
+
+ALGORITMO GeneradorContrasenas
+
+INICIO
+    // DECLARACIÓN DE VARIABLES
+    CADENA contrasena[11]  // 10 caracteres + terminador nulo
+    ENTERO i, codigo_ascii, opcion
+    CARACTER caracter
+    
+    // INICIALIZAR GENERADOR DE NÚMEROS ALEATORIOS
+    INICIALIZAR_ALEATORIO()
+    
+    // MOSTRAR MENÚ DE OPCIONES
+    ESCRIBIR "=== GENERADOR DE CONTRASEÑAS ALEATORIAS ==="
+    ESCRIBIR "Seleccione el tipo de contraseña:"
+    ESCRIBIR "1. Solo letras (A-Z, a-z)"
+    ESCRIBIR "2. Letras y números (A-Z, a-z, 0-9)"
+    ESCRIBIR "3. Completa (letras, números y símbolos)"
+    ESCRIBIR "4. Solo números"
+    ESCRIBIR "5. Personalizada (rango ASCII específico)"
+    ESCRIBIR "Opción: "
+    LEER opcion
+    
+    // GENERAR CONTRASEÑA SEGÚN LA OPCIÓN
+    SEGUN opcion HACER
+        CASO 1:
+            // Solo letras (A-Z: 65-90, a-z: 97-122)
+            PARA i = 0 HASTA 9 HACER
+                SI ALEATORIO(0, 1) = 0 ENTONCES
+                    codigo_ascii = ALEATORIO(65, 90)  // Mayúsculas
+                SINO
+                    codigo_ascii = ALEATORIO(97, 122) // Minúsculas
+                FIN_SI
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+            
+        CASO 2:
+            // Letras y números (A-Z, a-z, 0-9)
+            PARA i = 0 HASTA 9 HACER
+                tipo = ALEATORIO(1, 3)
+                SEGUN tipo HACER
+                    CASO 1: codigo_ascii = ALEATORIO(65, 90)   // Mayúsculas
+                    CASO 2: codigo_ascii = ALEATORIO(97, 122)  // Minúsculas
+                    CASO 3: codigo_ascii = ALEATORIO(48, 57)   // Números
+                FIN_SEGUN
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+            
+        CASO 3:
+            // Completa (caracteres imprimibles: 33-126)
+            PARA i = 0 HASTA 9 HACER
+                codigo_ascii = ALEATORIO(33, 126)
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+            
+        CASO 4:
+            // Solo números (0-9: 48-57)
+            PARA i = 0 HASTA 9 HACER
+                codigo_ascii = ALEATORIO(48, 57)
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+            
+        CASO 5:
+            // Personalizada
+            ESCRIBIR "Ingrese código ASCII mínimo (33-126): "
+            LEER min_ascii
+            ESCRIBIR "Ingrese código ASCII máximo (33-126): "
+            LEER max_ascii
+            
+            PARA i = 0 HASTA 9 HACER
+                codigo_ascii = ALEATORIO(min_ascii, max_ascii)
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+            
+        OTRO:
+            ESCRIBIR "Opción inválida. Generando contraseña completa..."
+            PARA i = 0 HASTA 9 HACER
+                codigo_ascii = ALEATORIO(33, 126)
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+    FIN_SEGUN
+    
+    // AGREGAR TERMINADOR NULO
+    contrasena[10] = '\0'
+    
+    // MOSTRAR RESULTADO
+    ESCRIBIR ""
+    ESCRIBIR "=== CONTRASEÑA GENERADA ==="
+    ESCRIBIR "Contraseña: ", contrasena
+    ESCRIBIR "Longitud: 10 caracteres"
+    
+    // MOSTRAR ANÁLISIS DE LA CONTRASEÑA
+    ESCRIBIR ""
+    ESCRIBIR "=== ANÁLISIS DE LA CONTRASEÑA ==="
+    ESCRIBIR "Pos | Car | ASCII | Tipo"
+    ESCRIBIR "----|-----|-------|-----"
+    
+    PARA i = 0 HASTA 9 HACER
+        caracter = contrasena[i]
+        codigo_ascii = CONVERTIR_A_ENTERO(caracter)
+        
+        ESCRIBIR_SIN_SALTO i+1, " | ", caracter, " | ", codigo_ascii, " | "
+        
+        SI codigo_ascii >= 48 Y codigo_ascii <= 57 ENTONCES
+            ESCRIBIR "Número"
+        SINO SI codigo_ascii >= 65 Y codigo_ascii <= 90 ENTONCES
+            ESCRIBIR "Mayúscula"
+        SINO SI codigo_ascii >= 97 Y codigo_ascii <= 122 ENTONCES
+            ESCRIBIR "Minúscula"
+        SINO
+            ESCRIBIR "Símbolo"
+        FIN_SI
+    FIN_PARA
+    
+    // GENERAR MÚLTIPLES CONTRASEÑAS
+    ESCRIBIR ""
+    ESCRIBIR "¿Desea generar más contraseñas? (S/N): "
+    LEER respuesta
+    
+    SI respuesta = 'S' O respuesta = 's' ENTONCES
+        ESCRIBIR ""
+        ESCRIBIR "=== 5 CONTRASEÑAS ADICIONALES ==="
+        PARA j = 1 HASTA 5 HACER
+            PARA i = 0 HASTA 9 HACER
+                codigo_ascii = ALEATORIO(33, 126)
+                contrasena[i] = CONVERTIR_A_CARACTER(codigo_ascii)
+            FIN_PARA
+            contrasena[10] = '\0'
+            ESCRIBIR j, ". ", contrasena
+        FIN_PARA
+    FIN_SI
+    
+FIN
+
+/*
+ * ANÁLISIS DEL PROBLEMA:
+ * 
+ * ENTRADA:
+ * - Opción del tipo de contraseña (1-5)
+ * - Rangos ASCII personalizados (opcional)
+ * - Confirmación para generar más contraseñas
+ * 
+ * PROCESO:
+ * 1. Inicializar generador de números aleatorios
+ * 2. Mostrar menú de opciones
+ * 3. Según la opción, definir rangos ASCII apropiados
+ * 4. Generar 10 caracteres aleatorios dentro del rango
+ * 5. Convertir códigos ASCII a caracteres
+ * 6. Formar la cadena de contraseña
+ * 7. Mostrar análisis detallado
+ * 8. Opcionalmente generar contraseñas adicionales
+ * 
+ * SALIDA:
+ * - Contraseña de 10 caracteres
+ * - Análisis detallado (posición, carácter, código ASCII, tipo)
+ * - Contraseñas adicionales (opcional)
+ * 
+ * TRAZA DEL ALGORITMO (Caso 2 - Letras y números):
+ * 
+ * Iteración 1: i = 0
+ *   tipo = ALEATORIO(1, 3) = 2
+ *   codigo_ascii = ALEATORIO(97, 122) = 104 ('h')
+ *   contrasena[0] = 'h'
+ * 
+ * Iteración 2: i = 1
+ *   tipo = ALEATORIO(1, 3) = 3
+ *   codigo_ascii = ALEATORIO(48, 57) = 53 ('5')
+ *   contrasena[1] = '5'
+ * 
+ * Iteración 3: i = 2
+ *   tipo = ALEATORIO(1, 3) = 1
+ *   codigo_ascii = ALEATORIO(65, 90) = 77 ('M')
+ *   contrasena[2] = 'M'
+ * 
+ * ... (continúa hasta completar 10 caracteres)
+ * 
+ * Resultado ejemplo: "h5MkP2nQ8x"
+ */

@@ -42,6 +42,7 @@ Tipos de datos, operadores (aritméticos, relacionales, lógicos), expresiones, 
 | [ejemplo3_variables_constantes](unidad3/ejemplo3_variables_constantes.c) | Variables de trabajo, contador, acumulador y constantes |
 | [ejemplo4_desbordamiento_enteros](unidad3/ejemplo4_desbordamiento_enteros.c) | Desbordamiento de enteros (overflow) — Cálculo de salario semanal |
 | [ejemplo5_tabla_ascii](unidad3/ejemplo5_tabla_ascii.c) | Tabla ASCII extendida (0-255) — Códigos, caracteres y vista compacta |
+| [ejemplo6_generador_contrasenas](unidad3/ejemplo6_generador_contrasenas.c) | Generador de contraseñas aleatorias — Uso de ASCII y números aleatorios |
 
 ---
 
