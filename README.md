@@ -152,6 +152,41 @@ Si no quieres instalar nada, puedes usar **OneCompiler**:
    ejemplo1.exe
    ```
 
+
+#### En Linux (Ubuntu/Debian):
+
+1. **Instalar GCC:**
+   ```bash
+   sudo apt update
+   sudo apt install build-essential
+   ```
+
+2. **Verificar instalación:**
+   ```bash
+   gcc --version
+   ```
+
+3. **Compilar y ejecutar:**
+   ```bash
+   gcc ejemplo1_hola_mundo.c -o ejemplo1
+   ./ejemplo1
+   ```
+
+#### En Linux (Fedora/RHEL):
+
+```bash
+sudo dnf install gcc
+```
+
+#### En macOS:
+
+```bash
+xcode-select --install
+```
+
+### Opción 3: Instalar en tu Telefono Inteligente
+
+
 #### En Android:
 
 **Opción A: Cxxdroid (Enfoque Educativo)**
@@ -205,36 +240,6 @@ Termux es un emulador de terminal Linux completo que permite usar herramientas p
 
 ---
 
-#### En Linux (Ubuntu/Debian):
-
-1. **Instalar GCC:**
-   ```bash
-   sudo apt update
-   sudo apt install build-essential
-   ```
-
-2. **Verificar instalación:**
-   ```bash
-   gcc --version
-   ```
-
-3. **Compilar y ejecutar:**
-   ```bash
-   gcc ejemplo1_hola_mundo.c -o ejemplo1
-   ./ejemplo1
-   ```
-
-#### En Linux (Fedora/RHEL):
-
-```bash
-sudo dnf install gcc
-```
-
-#### En macOS:
-
-```bash
-xcode-select --install
-```
 
 ### Comandos de Compilación Comunes
 
@@ -262,7 +267,7 @@ Cada ejemplo incluye dos archivos:
 
 ---
 
-## Plan de Evaluación
+### Plan de Evaluación
 
 **Período:** 02 de marzo — 19 de junio de 2026 (16 semanas)
 
