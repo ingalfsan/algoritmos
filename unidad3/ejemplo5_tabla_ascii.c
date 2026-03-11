@@ -122,9 +122,7 @@ int main() {
                 } else {
                     printf("--- - | ");
                 }
-            } else {
-                printf("      | ");
-            }
+            } 
         }
         printf("\n");
     }
