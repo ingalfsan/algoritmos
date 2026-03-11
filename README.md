@@ -41,6 +41,7 @@ Tipos de datos, operadores (aritméticos, relacionales, lógicos), expresiones, 
 | [ejemplo2_operadores](unidad3/ejemplo2_operadores.c) | Operadores aritméticos, relacionales y lógicos |
 | [ejemplo3_variables_constantes](unidad3/ejemplo3_variables_constantes.c) | Variables de trabajo, contador, acumulador y constantes |
 | [ejemplo4_desbordamiento_enteros](unidad3/ejemplo4_desbordamiento_enteros.c) | Desbordamiento de enteros (overflow) — Cálculo de salario semanal |
+| [ejemplo5_tabla_ascii](unidad3/ejemplo5_tabla_ascii.c) | Tabla ASCII extendida (0-255) — Códigos, caracteres y vista compacta |
 
 ---
 
@@ -149,6 +150,59 @@ Si no quieres instalar nada, puedes usar **OneCompiler**:
    gcc ejemplo1_hola_mundo.c -o ejemplo1.exe
    ejemplo1.exe
    ```
+
+#### En Android:
+
+**Opción A: Cxxdroid (Enfoque Educativo)**
+
+Cxxdroid es una IDE completa y amigable diseñada específicamente para aprender programación en C/C++. Ideal para estudiantes que quieren practicar en sus dispositivos móviles.
+
+1. **Descargar e instalar:**
+   - Abre Google Play Store
+   - Busca "Cxxdroid"
+   - Descarga e instala la aplicación oficial
+
+2. **Usar:**
+   - Abre Cxxdroid
+   - Crea un nuevo proyecto o archivo
+   - Escribe o copia el código C
+   - Presiona el botón de compilación/ejecución (▶️)
+   - Ingresa datos cuando se solicite
+
+**Ventajas:** Interfaz intuitiva, compilación rápida, perfecto para aprender.
+
+---
+
+**Opción B: Termux (Enfoque Profesional)**
+
+Termux es un emulador de terminal Linux completo que permite usar herramientas profesionales como GCC, Git y más. Ideal para desarrolladores que necesitan un entorno más cercano a Linux/Unix.
+
+1. **Descargar e instalar:**
+   - Abre Google Play Store
+   - Busca "Termux"
+   - Descarga e instala la aplicación oficial
+
+2. **Configurar GCC:**
+   ```bash
+   pkg update
+   pkg upgrade
+   pkg install clang
+   ```
+
+3. **Compilar y ejecutar:**
+   ```bash
+   gcc archivo.c -o programa
+   ./programa
+   ```
+
+4. **Instalar herramientas adicionales (opcional):**
+   ```bash
+   pkg install git nano
+   ```
+
+**Ventajas:** Entorno profesional, acceso a herramientas avanzadas, similar a Linux real.
+
+---
 
 #### En Linux (Ubuntu/Debian):
 

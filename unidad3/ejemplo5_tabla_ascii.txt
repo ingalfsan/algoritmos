@@ -1,0 +1,124 @@
+/*
+ * UNIDAD 3: DATOS Y ENTIDADES PRIMITIVAS
+ * Ejemplo 5: Tabla ASCII
+ * 
+ * OBJETIVO:
+ * Mostrar la tabla ASCII extendida completa (caracteres del 0 al 255) para comprender
+ * la relación entre valores numéricos y caracteres, así como el uso de 
+ * variables de tipo char e int.
+ *
+ * CONCEPTOS CLAVE:
+ * - Tipo de dato char
+ * - Conversión entre int y char
+ * - Códigos ASCII
+ * - Caracteres imprimibles y no imprimibles
+ * - Ciclo for (estructura iterativa)
+ */
+
+ALGORITMO TablaASCII
+
+INICIO
+    // DECLARACIÓN DE VARIABLES
+    ENTERO codigo
+    CARACTER caracter
+    
+    // MOSTRAR ENCABEZADO
+    ESCRIBIR "=== TABLA ASCII COMPLETA ==="
+    ESCRIBIR "Código | Carácter | Descripción"
+    ESCRIBIR "-------|----------|------------"
+    
+    // GENERAR TABLA ASCII EXTENDIDA (0-255)
+    PARA codigo = 0 HASTA 255 HACER
+        caracter = CONVERTIR_A_CARACTER(codigo)
+        
+        SI codigo >= 32 Y codigo <= 126 ENTONCES
+            // Caracteres imprimibles
+            ESCRIBIR codigo, " | ", caracter, " | Imprimible"
+        SINO
+            // Caracteres de control
+            SEGUN codigo HACER
+                CASO 0: ESCRIBIR codigo, " | NUL | Carácter nulo"
+                CASO 7: ESCRIBIR codigo, " | BEL | Campana (beep)"
+                CASO 8: ESCRIBIR codigo, " | BS  | Retroceso"
+                CASO 9: ESCRIBIR codigo, " | TAB | Tabulación"
+                CASO 10: ESCRIBIR codigo, " | LF  | Nueva línea"
+                CASO 13: ESCRIBIR codigo, " | CR  | Retorno de carro"
+                CASO 27: ESCRIBIR codigo, " | ESC | Escape"
+                CASO 32: ESCRIBIR codigo, " | SP  | Espacio"
+                CASO 127: ESCRIBIR codigo, " | DEL | Eliminar"
+                OTRO: ESCRIBIR codigo, " | --- | Control"
+            FIN_SEGUN
+        FIN_SI
+    FIN_PARA
+    
+    // MOSTRAR INFORMACIÓN ADICIONAL
+    ESCRIBIR ""
+    ESCRIBIR "=== INFORMACIÓN ADICIONAL ==="
+    ESCRIBIR "• ASCII estándar: 0-127 (128 caracteres)"
+    ESCRIBIR "• ASCII extendido: 128-255 (128 caracteres adicionales)"
+    ESCRIBIR "• Total de caracteres: 0-255 (256 caracteres)"
+    ESCRIBIR "• Caracteres imprimibles: 32-126 (95 caracteres)"
+    ESCRIBIR "• Caracteres de control: 0-31 y 127 (33 caracteres)"
+    ESCRIBIR "• Dígitos: 48-57 ('0'-'9')"
+    ESCRIBIR "• Letras mayúsculas: 65-90 ('A'-'Z')"
+    ESCRIBIR "• Letras minúsculas: 97-122 ('a'-'z')"
+    
+    // VISTA COMPACTA EN COLUMNAS
+    ESCRIBIR ""
+    ESCRIBIR "=== VISTA COMPACTA (SOLO CARACTERES IMPRIMIBLES) ==="
+    ESCRIBIR "Cod Car | Cod Car | Cod Car | Cod Car | Cod Car | Cod Car | Cod Car | Cod Car"
+    ESCRIBIR "--------|---------|---------|---------|---------|---------|---------|--------"
+    
+    PARA fila = 0 HASTA 31 HACER
+        PARA columna = 0 HASTA 7 HACER
+            codigo = 32 + fila + (columna * 32)
+            SI codigo <= 255 ENTONCES
+                caracter = CONVERTIR_A_CARACTER(codigo)
+                SI codigo >= 32 Y codigo <= 126 ENTONCES
+                    ESCRIBIR_SIN_SALTO codigo, " ", caracter, " |"
+                SINO SI codigo >= 128 Y codigo <= 255 ENTONCES
+                    ESCRIBIR_SIN_SALTO codigo, " ", caracter, " |"
+                SINO
+                    ESCRIBIR_SIN_SALTO "--- - |"
+                FIN_SI
+            FIN_SI
+        FIN_PARA
+        ESCRIBIR ""  // Nueva línea al final de cada fila
+    FIN_PARA
+    
+FIN
+
+/*
+ * ANÁLISIS DEL PROBLEMA:
+ * 
+ * ENTRADA:
+ * - Ninguna (el programa genera automáticamente los códigos ASCII)
+ * 
+ * PROCESO:
+ * 1. Iterar desde el código 0 hasta 127
+ * 2. Para cada código, convertirlo a su carácter equivalente
+ * 3. Determinar si es imprimible o de control
+ * 4. Mostrar código, carácter y descripción
+ * 5. Proporcionar información adicional sobre rangos ASCII
+ * 
+ * SALIDA:
+ * - Tabla completa con códigos ASCII, caracteres y descripciones
+ * - Información sobre rangos de caracteres
+ * 
+ * TRAZA DEL ALGORITMO (primeros valores):
+ * 
+ * Iteración 1: codigo = 0
+ *   caracter = (char)0
+ *   0 < 32, entonces es carácter de control
+ *   Salida: "0 | NUL | Carácter nulo"
+ * 
+ * Iteración 33: codigo = 32
+ *   caracter = (char)32 = ' '
+ *   32 >= 32 Y 32 <= 126, entonces es imprimible
+ *   Salida: "32 |   | Imprimible"
+ * 
+ * Iteración 66: codigo = 65
+ *   caracter = (char)65 = 'A'
+ *   65 >= 32 Y 65 <= 126, entonces es imprimible
+ *   Salida: "65 | A | Imprimible"
+ */
