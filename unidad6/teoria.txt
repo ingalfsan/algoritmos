@@ -1,0 +1,280 @@
+================================================================================
+  UNIDAD 6: PROGRAMACION MODULAR
+  Asignatura: Algoritmos y Programacion
+  Prof. Jose Alfredo Sanchez
+================================================================================
+
+1. INTRODUCCION A LA PROGRAMACION MODULAR
+===========================================
+
+La programacion modular consiste en dividir un programa grande en
+partes mas pequenas e independientes llamadas MODULOS (funciones
+y procedimientos).
+
+Ventajas:
+- Divide y venceras: problemas complejos se resuelven por partes.
+- Reutilizacion: un modulo se escribe una vez y se usa muchas veces.
+- Mantenimiento: si hay un error, se localiza y corrige en un modulo.
+- Legibilidad: el programa principal queda mas corto y claro.
+- Trabajo en equipo: cada persona puede trabajar en un modulo diferente.
+
+
+2. FUNCIONES Y PROCEDIMIENTOS
+===============================
+
+2.1 Procedimiento (Funcion void en C)
+---------------------------------------
+Es un modulo que realiza una tarea pero NO retorna un valor.
+En C se declara con la palabra "void" (vacio).
+
+Pseudocodigo:                        En C:
+
+  Procedimiento mostrarSaludo()        void mostrarSaludo() {
+      Escribir "Bienvenido"               printf("Bienvenido\n");
+  Fin Procedimiento                    }
+
+Se llama (invoca) asi:
+  mostrarSaludo()                      mostrarSaludo();
+
+2.2 Funcion (Funcion con retorno en C)
+----------------------------------------
+Es un modulo que realiza una tarea y RETORNA un valor al punto
+donde fue llamada.
+
+Pseudocodigo:                        En C:
+
+  Funcion Real sumar(Real a, Real b)   float sumar(float a, float b) {
+      Retornar a + b                       return a + b;
+  Fin Funcion                          }
+
+Se llama asi:
+  resultado = sumar(5, 3)             resultado = sumar(5, 3);
+  // resultado vale 8                 // resultado vale 8
+
+2.3 Diferencia clave:
+
+  +------------------+----------------------------+
+  | Procedimiento    | Funcion                    |
+  +------------------+----------------------------+
+  | NO retorna valor | SI retorna un valor        |
+  | void en C        | int, float, char... en C   |
+  | Se llama solo    | Se asigna a una variable   |
+  | mostrarMenu();   | r = calcular(a, b);        |
+  +------------------+----------------------------+
+
+
+3. DEFINICION Y DECLARACION DE FUNCIONES EN C
+===============================================
+
+3.1 Estructura de una funcion en C:
+
+  tipo_retorno nombre_funcion(parametros) {
+      // cuerpo de la funcion
+      return valor;  // si no es void
+  }
+
+  Donde:
+  - tipo_retorno: tipo del valor que devuelve (int, float, void, etc.)
+  - nombre_funcion: identificador descriptivo
+  - parametros: datos que recibe (puede ser vacio)
+  - return: valor que devuelve al punto de llamada
+
+3.2 Ejemplo completo:
+
+  // Declaracion (prototipo) - le dice al compilador que la funcion existe
+  float calcularArea(float base, float altura);
+
+  // Programa principal
+  int main() {
+      float b = 5, h = 3;
+      float area = calcularArea(b, h);   // Llamada a la funcion
+      printf("Area: %.2f\n", area);
+      return 0;
+  }
+
+  // Definicion (implementacion) - el cuerpo de la funcion
+  float calcularArea(float base, float altura) {
+      return base * altura;
+  }
+
+NOTA: Si la funcion se define ANTES de main(), no necesita prototipo.
+Si se define DESPUES, se necesita declarar el prototipo antes de main().
+
+
+4. AMBITO DE VARIABLES: LOCALES Y GLOBALES
+=============================================
+
+El "ambito" (scope) de una variable determina DONDE es visible y
+accesible dentro del programa.
+
+4.1 Variables LOCALES
+----------------------
+- Se declaran DENTRO de una funcion.
+- Solo existen mientras esa funcion se esta ejecutando.
+- No son accesibles desde otras funciones.
+- Se crean al entrar a la funcion y se destruyen al salir.
+
+  void ejemplo() {
+      int x = 10;       // x es LOCAL a esta funcion
+      printf("%d", x);  // OK: x es visible aqui
+  }
+
+  int main() {
+      ejemplo();
+      // printf("%d", x);  // ERROR: x no existe aqui
+      return 0;
+  }
+
+4.2 Variables GLOBALES
+-----------------------
+- Se declaran FUERA de todas las funciones (generalmente al inicio).
+- Son accesibles desde CUALQUIER funcion del programa.
+- Existen durante toda la ejecucion del programa.
+
+  int contador = 0;  // GLOBAL: visible en todo el programa
+
+  void incrementar() {
+      contador++;     // OK: puede acceder a la variable global
+  }
+
+  int main() {
+      incrementar();
+      incrementar();
+      printf("%d", contador);  // Imprime: 2
+      return 0;
+  }
+
+4.3 Comparacion:
+
+  +-------------------+---------------------------+
+  | Variable Local    | Variable Global           |
+  +-------------------+---------------------------+
+  | Dentro de funcion | Fuera de funciones        |
+  | Solo en su funcion| En todo el programa       |
+  | Se crea/destruye  | Existe todo el tiempo     |
+  | Mas segura        | Puede causar errores      |
+  | RECOMENDADA       | Usar con precaucion       |
+  +-------------------+---------------------------+
+
+RECOMENDACION: Preferir variables locales. Las globales deben usarse
+solo cuando realmente se necesita compartir datos entre funciones sin
+usar parametros.
+
+4.4 Conflicto de nombres:
+Si una variable local tiene el mismo nombre que una global, la LOCAL
+tiene prioridad dentro de su funcion.
+
+  int x = 100;  // global
+
+  void funcion() {
+      int x = 5;       // local: "oculta" la global
+      printf("%d", x); // Imprime: 5 (la local)
+  }
+
+  int main() {
+      printf("%d", x); // Imprime: 100 (la global)
+      funcion();
+      return 0;
+  }
+
+
+5. LLAMADA DE UNA FUNCION Y PASE DE PARAMETROS
+=================================================
+
+5.1 Parametros y argumentos
+-----------------------------
+- Parametro: variable en la DEFINICION de la funcion (nombre formal).
+- Argumento: valor que se PASA al llamar la funcion (valor real).
+
+  float calcular(float precio, int cantidad) {  // parametros
+      return precio * cantidad;
+  }
+
+  int main() {
+      float total = calcular(9.99, 3);  // argumentos: 9.99 y 3
+      return 0;
+  }
+
+5.2 Pase por VALOR
+--------------------
+Se copia el valor del argumento al parametro.
+La funcion trabaja con la COPIA, el original NO se modifica.
+
+  void duplicar(int numero) {
+      numero = numero * 2;         // modifica la COPIA
+      printf("Dentro: %d\n", numero);  // Imprime: 10
+  }
+
+  int main() {
+      int x = 5;
+      duplicar(x);
+      printf("Fuera: %d\n", x);   // Imprime: 5 (NO cambio)
+      return 0;
+  }
+
+  Explicacion:
+  - x vale 5 en main
+  - Se copia 5 al parametro 'numero'
+  - 'numero' se duplica a 10 dentro de la funcion
+  - Pero x sigue valiendo 5, porque era una copia
+
+5.3 Pase por REFERENCIA (punteros en C)
+-----------------------------------------
+Se pasa la DIRECCION de memoria de la variable.
+La funcion puede modificar el valor ORIGINAL.
+
+En C se usan punteros (*) para pase por referencia:
+
+  void duplicar(int *numero) {         // recibe un puntero
+      *numero = *numero * 2;           // modifica el ORIGINAL
+      printf("Dentro: %d\n", *numero); // Imprime: 10
+  }
+
+  int main() {
+      int x = 5;
+      duplicar(&x);                    // pasa la DIRECCION de x
+      printf("Fuera: %d\n", x);       // Imprime: 10 (SI cambio)
+      return 0;
+  }
+
+  Explicacion:
+  - &x es la direccion de memoria de x
+  - *numero accede al valor en esa direccion
+  - Al modificar *numero, se modifica x directamente
+
+5.4 Comparacion:
+
+  +-------------------+-----------------------------+
+  | Por Valor         | Por Referencia              |
+  +-------------------+-----------------------------+
+  | Copia el valor    | Pasa la direccion           |
+  | Original intacto  | Original se puede modificar |
+  | func(x)           | func(&x)                    |
+  | int param         | int *param                  |
+  | Mas seguro        | Mas eficiente para datos    |
+  |                   | grandes                     |
+  +-------------------+-----------------------------+
+
+Cuando usar cada uno:
+- Por valor: cuando la funcion NO necesita modificar el original.
+- Por referencia: cuando la funcion SI debe modificar el original,
+  o cuando se necesita retornar mas de un valor.
+
+Ejemplo de funcion que retorna dos valores usando punteros:
+
+  void dividir(int a, int b, int *cociente, int *residuo) {
+      *cociente = a / b;
+      *residuo = a % b;
+  }
+
+  int main() {
+      int c, r;
+      dividir(17, 5, &c, &r);
+      printf("Cociente: %d, Residuo: %d\n", c, r);
+      // Imprime: Cociente: 3, Residuo: 2
+      return 0;
+  }
+
+================================================================================
+  FIN DE LA TEORIA - UNIDAD 6
+================================================================================

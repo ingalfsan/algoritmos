@@ -1,0 +1,187 @@
+================================================================================
+  UNIDAD 1: ALGORITMOS Y PROGRAMAS
+  Asignatura: Algoritmos y Programacion
+  Prof. Jose Alfredo Sanchez
+================================================================================
+
+1. CONCEPTO DE ALGORITMO
+========================
+
+Un algoritmo es un conjunto ordenado y finito de pasos o instrucciones
+bien definidas que permiten resolver un problema o realizar una tarea
+especifica.
+
+Caracteristicas de un algoritmo:
+- PRECISO: Cada paso debe ser claro y sin ambiguedad.
+- DEFINIDO: Si se ejecuta dos veces con los mismos datos, debe dar
+  el mismo resultado.
+- FINITO: Debe terminar en algun momento (numero finito de pasos).
+
+Ejemplo cotidiano:
+  Algoritmo para preparar cafe:
+  1. Calentar agua
+  2. Colocar cafe en el filtro
+  3. Verter el agua caliente sobre el filtro
+  4. Esperar que filtre
+  5. Servir en la taza
+
+
+2. CONCEPTO DE PROGRAMA
+========================
+
+Un programa es la traduccion de un algoritmo a un lenguaje de
+programacion que la computadora puede entender y ejecutar.
+
+  Algoritmo (idea) --> Programa (codigo) --> Ejecucion (resultado)
+
+La diferencia clave:
+- Algoritmo: es independiente del lenguaje, es la logica pura.
+- Programa: es la implementacion concreta en un lenguaje (C, Python, etc.)
+
+
+3. LENGUAJE ALGORITMICO Y DE PROGRAMACION
+==========================================
+
+Lenguaje algoritmico:
+  Es un lenguaje informal usado para expresar algoritmos de forma
+  comprensible para humanos. No tiene reglas sintacticas estrictas.
+  Ejemplo: pseudocodigo.
+
+Lenguaje de programacion:
+  Es un lenguaje formal con reglas sintacticas estrictas que la
+  computadora puede procesar.
+  Ejemplos: C, Java, Python, C++.
+
+Clasificacion de lenguajes:
+- Bajo nivel: Lenguaje maquina (binario), Ensamblador.
+- Alto nivel: C, Java, Python (mas cercanos al lenguaje humano).
+
+
+4. PARTES DE UN ALGORITMO
+===========================
+
+Todo algoritmo tiene tres partes fundamentales:
+
+  +----------+     +----------+     +----------+
+  | ENTRADA  | --> | PROCESO  | --> |  SALIDA  |
+  +----------+     +----------+     +----------+
+
+- ENTRADA: Datos que el algoritmo necesita para trabajar.
+  Ejemplo: base y altura de un rectangulo.
+
+- PROCESO: Operaciones y calculos que se realizan con los datos.
+  Ejemplo: area = base * altura
+
+- SALIDA: Resultados que produce el algoritmo.
+  Ejemplo: mostrar el area calculada.
+
+
+5. CARACTERISTICAS PARA CONSTRUIR UN ALGORITMO
+================================================
+
+Un buen algoritmo debe cumplir:
+
+a) Precision: Los pasos deben estar definidos sin ambiguedad.
+b) Determinismo: Ante las mismas entradas, produce las mismas salidas.
+c) Finitud: Debe terminar despues de un numero finito de pasos.
+d) Entrada: Puede tener cero o mas datos de entrada.
+e) Salida: Debe producir al menos un resultado.
+f) Efectividad: Cada paso debe ser lo suficientemente basico para
+   poder ejecutarse (en teoria) con lapiz y papel.
+
+Elementos para construir un algoritmo:
+- Variables y constantes (almacenar datos)
+- Operadores (realizar calculos)
+- Instrucciones de entrada/salida (leer/escribir)
+- Estructuras de control (decisiones y repeticiones)
+
+
+6. FORMAS DE REPRESENTAR UN ALGORITMO
+=======================================
+
+6.1 Lenguaje Natural
+---------------------
+Se describe el algoritmo con palabras del idioma comun.
+
+  Ejemplo:
+  "Pedir al usuario dos numeros, sumarlos y mostrar el resultado."
+
+  Ventaja: Facil de entender.
+  Desventaja: Puede ser ambiguo.
+
+6.2 Pseudocodigo
+-----------------
+Lenguaje intermedio entre el lenguaje natural y el de programacion.
+Usa palabras clave como Inicio, Fin, Leer, Escribir, Si, Mientras, etc.
+
+  Ejemplo:
+  Inicio
+      Entero a, b, suma
+      Escribir "Ingrese dos numeros:"
+      Leer a
+      Leer b
+      suma = a + b
+      Escribir "La suma es: ", suma
+  Fin
+
+  Ventaja: Mas preciso que el lenguaje natural, facil de traducir a codigo.
+  Desventaja: No es estandar universal (varia entre autores).
+
+6.3 Diagrama de Flujo
+-----------------------
+Representacion grafica del algoritmo usando simbolos estandarizados.
+
+  Simbolos principales:
+  - Ovalo (inicio/fin):         Marca el comienzo y final.
+  - Rectangulo (proceso):       Operaciones y calculos.
+  - Rombo (decision):           Preguntas Si/No.
+  - Paralelogramo (E/S):        Entrada o salida de datos.
+  - Flechas:                    Indican la direccion del flujo.
+
+  Ventaja: Visual, facil de seguir el flujo.
+  Desventaja: Puede volverse complejo para algoritmos grandes.
+
+
+7. TRAZA DE UN ALGORITMO (CORRIDA EN FRIO)
+=============================================
+
+La traza o corrida en frio es la ejecucion manual de un algoritmo
+paso a paso, registrando el valor de cada variable en cada momento.
+
+Sirve para:
+- Verificar que el algoritmo funciona correctamente.
+- Encontrar errores de logica ANTES de programar.
+- Entender el comportamiento del algoritmo.
+
+Como hacer una traza:
+1. Crear una tabla con una columna por cada variable.
+2. Agregar una columna para la salida en pantalla.
+3. Ejecutar cada instruccion en orden, actualizando los valores.
+
+Ejemplo con pseudocodigo:
+
+  Inicio
+      Entero a, b, c
+      a = 5
+      b = 3
+      c = a + b
+      Escribir c
+  Fin
+
+  Traza:
+  +------+---+---+---+----------+
+  | Paso | a | b | c | Salida   |
+  +------+---+---+---+----------+
+  |  1   | ? | ? | ? |          |
+  |  2   | 5 | ? | ? |          |
+  |  3   | 5 | 3 | ? |          |
+  |  4   | 5 | 3 | 8 |          |
+  |  5   | 5 | 3 | 8 | 8        |
+  +------+---+---+---+----------+
+
+Consejo: Siempre haz la corrida en frio con al menos dos conjuntos
+de datos diferentes para validar tu algoritmo.
+
+================================================================================
+  FIN DE LA TEORIA - UNIDAD 1
+================================================================================
