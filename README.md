@@ -12,7 +12,7 @@ Repositorio de ejemplos prácticos para la asignatura **Algoritmos y Programaci�
 
 Conceptos fundamentales de algoritmos, partes de un algoritmo (entrada, proceso, salida), formas de representación y traza (corrida en frío).
 
-📖 **[Teoría de la Unidad 1](unidad1/teoria.txt)** — Conceptos teóricos sobre algoritmos y programas
+📖 **[Teoría de la Unidad 1](unidad1/teoria.md)** — Conceptos teóricos sobre algoritmos y programas
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -26,7 +26,7 @@ Conceptos fundamentales de algoritmos, partes de un algoritmo (entrada, proceso,
 
 Estándares de calidad, trazabilidad, documentación de algoritmos y programas, manuales de sistema/usuario.
 
-📖 **[Teoría de la Unidad 2](unidad2/teoria.txt)** — Estándares de calidad y documentación
+📖 **[Teoría de la Unidad 2](unidad2/teoria.md)** — Estándares de calidad y documentación
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -39,7 +39,7 @@ Estándares de calidad, trazabilidad, documentación de algoritmos y programas, 
 
 Tipos de datos, operadores (aritméticos, relacionales, lógicos), expresiones, identificadores, variables (de trabajo, contador, acumulador) y constantes.
 
-📖 **[Teoría de la Unidad 3](unidad3/teoria.txt)** — Tipos de datos, operadores y variables
+📖 **[Teoría de la Unidad 3](unidad3/teoria.md)** — Tipos de datos, operadores y variables
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -56,7 +56,7 @@ Tipos de datos, operadores (aritméticos, relacionales, lógicos), expresiones, 
 
 Identificación del problema, datos de entrada/salida, operaciones y descripción de procesos.
 
-📖 **[Teoría de la Unidad 4](unidad4/teoria.txt)** — Metodología de análisis y planteamiento de problemas
+📖 **[Teoría de la Unidad 4](unidad4/teoria.md)** — Metodología de análisis y planteamiento de problemas
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -69,7 +69,7 @@ Identificación del problema, datos de entrada/salida, operaciones y descripció
 
 Estructuras de decisión (simple, doble, múltiple, anidada, selectiva) y estructuras iterativas (mientras, repetir, para, ciclos anidados).
 
-📖 **[Teoría de la Unidad 5](unidad5/teoria.txt)** — Estructuras de control y ciclos
+📖 **[Teoría de la Unidad 5](unidad5/teoria.md)** — Estructuras de control y ciclos
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -88,7 +88,7 @@ Estructuras de decisión (simple, doble, múltiple, anidada, selectiva) y estruc
 
 Funciones y procedimientos, ámbito de variables (locales y globales), pase de parámetros por valor y por referencia.
 
-📖 **[Teoría de la Unidad 6](unidad6/teoria.txt)** — Funciones y programación modular
+📖 **[Teoría de la Unidad 6](unidad6/teoria.md)** — Funciones y programación modular
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -101,7 +101,7 @@ Funciones y procedimientos, ámbito de variables (locales y globales), pase de p
 
 Prueba de caja negra y reingeniería de programas.
 
-📖 **[Teoría de la Unidad 7](unidad7/teoria.txt)** — Mantenimiento y pruebas de software
+📖 **[Teoría de la Unidad 7](unidad7/teoria.md)** — Mantenimiento y pruebas de software
 
 | Archivo | Descripción |
 |---------|-------------|
