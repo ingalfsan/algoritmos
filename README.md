@@ -1,6 +1,7 @@
 # Algoritmos y Programación
 
-**Profesor:** José Alfredo Sánchez
+**Profesor:** José Alfredo Sánchez  
+🌐 **[Portafolio del Profesor](https://ingalfsan.pages.dev/)**
 
 Repositorio de ejemplos prácticos para la asignatura **Algoritmos y Programación**. Cada unidad contiene pseudocódigo en formato `.txt` y su equivalente en **lenguaje C estándar (ANSI C)**.
 
