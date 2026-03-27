@@ -20,6 +20,7 @@ Conceptos fundamentales de algoritmos, partes de un algoritmo (entrada, proceso,
 | [ejemplo1_hola_mundo](unidad1/ejemplo1_hola_mundo.c) | Primer programa: mostrar mensajes en pantalla |
 | [ejemplo2_partes_algoritmo](unidad1/ejemplo2_partes_algoritmo.c) | Entrada, proceso y salida — Área de un rectángulo |
 | [ejemplo3_traza_algoritmo](unidad1/ejemplo3_traza_algoritmo.c) | Corrida en frío — Conversión Celsius a Fahrenheit |
+| [ejemplo4_casa_cambio](unidad1/ejemplo4_casa_cambio.c) | Casa de cambio — Venta de divisas con comisión |
 
 ---
 

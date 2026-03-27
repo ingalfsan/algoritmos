@@ -1,0 +1,169 @@
+================================================================================
+  EJEMPLO 4: CASA DE CAMBIO - VENTA DE DIVISAS
+  Unidad 1: Algoritmos y Programas
+  Asignatura: Algoritmos y Programacion
+  Prof. Jose Alfredo Sanchez
+================================================================================
+
+ENUNCIADO DEL PROBLEMA:
+========================
+
+Una casa de cambio requiere un programa que automatice el calculo de venta
+de divisas, incluyendo costos operativos. El programa debe realizar lo siguiente:
+
+* Entrada de Datos:
+  - Solicitar el precio del dolar del dia (BCV).
+  - Solicitar la cantidad de Bolivares que entrega el cliente.
+  - Solicitar el porcentaje de comision por servicio (ejemplo: 5%).
+
+* Calculo Aritmetico:
+  - Calcular el monto de la comision en Bolivares.
+  - Calcular el monto neto (Bolivares totales menos la comision).
+  - Calcular la cantidad de Dolares finales a entregar al cliente.
+
+* Salida:
+  - Mostrar por pantalla el monto cobrado por comision.
+  - Mostrar el total de Dolares que recibe el cliente (usar 2 decimales).
+
+Nota: Para el manejo de porcentajes: Aplicar la formula (monto * porcentaje) / 100.
+
+
+ANALISIS DEL PROBLEMA (Metodologia de 5 pasos):
+=================================================
+
+1. IDENTIFICACION DEL PROBLEMA:
+   Calcular la cantidad de dolares que recibe un cliente al cambiar bolivares,
+   descontando una comision por servicio.
+
+2. DATOS DE ENTRADA:
+   - precioDolar (Real): Precio del dolar segun BCV
+   - bolivaresCliente (Real): Cantidad de bolivares que entrega el cliente
+   - porcentajeComision (Real): Porcentaje de comision (ejemplo: 5 para 5%)
+
+3. DATOS DE SALIDA:
+   - montoComision (Real): Monto cobrado por comision en bolivares
+   - dolaresFinales (Real): Cantidad de dolares que recibe el cliente
+
+4. OPERACIONES:
+   - montoComision = (bolivaresCliente * porcentajeComision) / 100
+   - montoNeto = bolivaresCliente - montoComision
+   - dolaresFinales = montoNeto / precioDolar
+
+5. PROCESO (Algoritmo):
+   Ver pseudocodigo a continuacion.
+
+
+PSEUDOCODIGO:
+==============
+
+Algoritmo CasaDeCambio
+
+Inicio
+    // Declaracion de variables
+    Real precioDolar, bolivaresCliente, porcentajeComision
+    Real montoComision, montoNeto, dolaresFinales
+
+    // Entrada de datos
+    Escribir "=== CASA DE CAMBIO - VENTA DE DOLARES ==="
+    Escribir ""
+    Escribir "Ingrese el precio del dolar (BCV): "
+    Leer precioDolar
+
+    Escribir "Ingrese la cantidad de Bolivares: "
+    Leer bolivaresCliente
+
+    Escribir "Ingrese el porcentaje de comision (%): "
+    Leer porcentajeComision
+
+    // Proceso: Calculos
+    montoComision = (bolivaresCliente * porcentajeComision) / 100
+    montoNeto = bolivaresCliente - montoComision
+    dolaresFinales = montoNeto / precioDolar
+
+    // Salida de resultados
+    Escribir ""
+    Escribir "--- RESUMEN DE LA OPERACION ---"
+    Escribir "Bolivares entregados: ", bolivaresCliente
+    Escribir "Comision cobrada (", porcentajeComision, "%): ", montoComision
+    Escribir "Monto neto: ", montoNeto
+    Escribir "Dolares a recibir: $", dolaresFinales
+
+Fin
+
+
+TRAZA DEL ALGORITMO (Corrida en frio):
+========================================
+
+Datos de prueba:
+- precioDolar = 36.50
+- bolivaresCliente = 1000.00
+- porcentajeComision = 5.0
+
+Ejecucion paso a paso:
+
++------+-------------+------------------+--------------------+---------------+--------------+----------------+
+| Paso | precioDolar | bolivaresCliente | porcentajeComision | montoComision | montoNeto    | dolaresFinales |
++------+-------------+------------------+--------------------+---------------+--------------+----------------+
+|  1   |      ?      |        ?         |         ?          |       ?       |      ?       |       ?        |
+|  2   |    36.50    |        ?         |         ?          |       ?       |      ?       |       ?        |
+|  3   |    36.50    |     1000.00      |         ?          |       ?       |      ?       |       ?        |
+|  4   |    36.50    |     1000.00      |        5.0         |       ?       |      ?       |       ?        |
+|  5   |    36.50    |     1000.00      |        5.0         |     50.00     |      ?       |       ?        |
+|  6   |    36.50    |     1000.00      |        5.0         |     50.00     |    950.00    |       ?        |
+|  7   |    36.50    |     1000.00      |        5.0         |     50.00     |    950.00    |     26.03      |
++------+-------------+------------------+--------------------+---------------+--------------+----------------+
+
+Calculos detallados:
+  Paso 5: montoComision = (1000.00 * 5.0) / 100 = 5000.00 / 100 = 50.00
+  Paso 6: montoNeto = 1000.00 - 50.00 = 950.00
+  Paso 7: dolaresFinales = 950.00 / 36.50 = 26.027397... ≈ 26.03
+
+Salida esperada:
+  --- RESUMEN DE LA OPERACION ---
+  Bolivares entregados: 1000.00
+  Comision cobrada (5%): 50.00
+  Monto neto: 950.00
+  Dolares a recibir: $26.03
+
+
+VERIFICACION CON OTRO CONJUNTO DE DATOS:
+==========================================
+
+Datos de prueba 2:
+- precioDolar = 40.00
+- bolivaresCliente = 2000.00
+- porcentajeComision = 3.0
+
+Calculos:
+  montoComision = (2000.00 * 3.0) / 100 = 60.00
+  montoNeto = 2000.00 - 60.00 = 1940.00
+  dolaresFinales = 1940.00 / 40.00 = 48.50
+
+Resultado: El cliente recibe $48.50
+
+
+NOTAS IMPORTANTES:
+===================
+
+1. Este ejercicio aplica los conceptos de:
+   - Entrada, Proceso y Salida (partes de un algoritmo)
+   - Variables de trabajo (para almacenar resultados intermedios)
+   - Operadores aritmeticos (*, /, -)
+   - Expresiones aritmeticas
+
+2. Formula de porcentaje:
+   Para calcular el X% de un monto:
+   resultado = (monto * porcentaje) / 100
+
+   Ejemplo: 5% de 1000 = (1000 * 5) / 100 = 50
+
+3. En la implementacion en C, se usa %.2f para mostrar solo 2 decimales
+   en los dolares finales.
+
+4. Este problema es similar al ejemplo de nomina (ejemplo1_analisis_problema.c
+   de la unidad 4), pero mas simple, ideal para practicar los conceptos
+   basicos de la unidad 1.
+
+================================================================================
+  FIN DEL EJEMPLO 4
+================================================================================
