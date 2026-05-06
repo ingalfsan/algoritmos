@@ -1,0 +1,10 @@
+# Archivos ejecutables compilados
+*.exe
+*.out
+*.a
+*.o
+
+# Archivos temporales
+*~
+*.swp
+*.swo
