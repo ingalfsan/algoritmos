@@ -10,8 +10,6 @@
 
 #include <stdio.h>
 
-#define PI 3.14159
-
 /* ============================================================
  *  PROCEDIMIENTOS Y FUNCIONES
  * ============================================================ */
@@ -19,11 +17,6 @@
 /* Procedimiento: imprime una linea separadora */
 void mostrarLinea() {
     printf("================================\n");
-}
-
-/* Funcion: calcula el area de un circulo */
-float calcularAreaCirculo(float radio) {
-    return PI * radio * radio;
 }
 
 /* Funcion: calcula el Indice de Masa Corporal */
@@ -142,20 +135,11 @@ void mensajeCombinado(float imc, float nota) {
  *  PROGRAMA PRINCIPAL
  * ============================================================ */
 int main() {
-    float radio, area;
     float peso, estatura, imc;
     float nota;
 
     mostrarLinea();
     printf("  FUNCIONES + CONDICIONALES AND/OR\n");
-    mostrarLinea();
-
-    /* --- Circulo --- */
-    printf("Ingrese el radio del circulo: ");
-    scanf("%f", &radio);
-    area = calcularAreaCirculo(radio);
-    printf("Area del circulo          : %.2f\n", area);
-
     mostrarLinea();
 
     /* --- IMC --- */
